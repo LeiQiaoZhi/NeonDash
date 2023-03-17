@@ -5,17 +5,18 @@ using UnityEngine;
 public class WeaponHolder : MonoBehaviour
 {
     public Weapon weapon;
-    private float _nextFireTime;
+    public SpriteRenderer weaponSpriteRenderer;
+    private float nextFireTime;
 
     public void Fire()
     {
-        if (Time.time < _nextFireTime)
+        if (Time.time < nextFireTime)
         {
             return;
         }
         
         weapon.ShootBullet(this);
         
-        _nextFireTime = Time.time + weapon.weaponProperties.secondsBetweenFire;
+        nextFireTime = Time.time + weapon.weaponProperties.secondsBetweenFire;
     }
 }

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsBetweenFire: 0.5
   halfWidth: 0.6
-  numBulletsTDLR: 01000000000000000000000000000000
-  knockBack: 50
-  bulletInaccuracyAngleRange: 4
+  numBulletsTDLR: 01000000010000000100000001000000
+  knockBack: 10
+  bulletInaccuracyAngleRange: 0

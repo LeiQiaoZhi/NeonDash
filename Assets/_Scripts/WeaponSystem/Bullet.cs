@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     [Header("Effects")] 
     public ParticleSystem hitEffect;
     public float fadeDuration;
+    
 
     private Rigidbody2D _rb;
     private SpriteRenderer[] _spriteRenderers;
@@ -49,7 +50,7 @@ public class Bullet : MonoBehaviour
     {
         foreach (var spriteRenderer in _spriteRenderers)
         {
-            XLogger.Log($"setting {spriteRenderer.gameObject.name}'s alpha to {alpha}");
+            // XLogger.Log($"setting {spriteRenderer.gameObject.name}'s alpha to {alpha}");
             Color tempColor = spriteRenderer.color;
             tempColor.a = alpha;
             spriteRenderer.color = tempColor;

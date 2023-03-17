@@ -17,3 +17,4 @@ MonoBehaviour:
   coolDownTime: 0.5
   activeTime: 0.2
   dashSpeedMultiplier: 25
+  dashShade: {fileID: 8488086815425373652, guid: 5e843af493891a143bf97d8e45ba2dbd, type: 3}

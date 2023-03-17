@@ -31,7 +31,7 @@ public class Weapon : ScriptableObject
         holder.StartCoroutine(KnockBack(holder.gameObject.GetComponentInParent<Rigidbody2D>(), -holder.transform.up, 0.1f));
     }
 
-    IEnumerator KnockBack(Rigidbody2D rb, Vector2 direction, float time)
+    protected IEnumerator KnockBack(Rigidbody2D rb, Vector2 direction, float time)
     {
         float normalAcc = rb.GetComponent<Movement>().movementSettings.accleration;
         rb.GetComponent<Movement>().movementSettings.accleration /= 10;
