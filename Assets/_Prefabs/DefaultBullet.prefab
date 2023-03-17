@@ -54,7 +54,7 @@ MonoBehaviour:
     m_Bits: 128
   targetLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 128
   hitEffect: {fileID: 3120009376352537509, guid: db30e7f771138c8438d3362f5cff874a, type: 3}
   fadeDuration: 0.2
 --- !u!114 &7736082114043557527

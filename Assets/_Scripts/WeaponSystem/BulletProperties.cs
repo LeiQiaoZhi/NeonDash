@@ -3,6 +3,7 @@
 [CreateAssetMenu(menuName = "Weapon/BulletProperty")]
 public class BulletProperties : ScriptableObject
 {
+    public int damage = 1;
     public float speed;
     public float lifeTime;
     [Header("Division")] public float numBulletsDivided;

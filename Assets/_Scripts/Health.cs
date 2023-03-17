@@ -6,18 +6,18 @@ public abstract class Health : MonoBehaviour
 {
     public int maxHealth;
     
-    protected int CurrentHealth;
+    protected int currentHealth;
 
     // Start is called before the first frame update
     public virtual void Awake()
     {
-        CurrentHealth = maxHealth;
+        currentHealth = maxHealth;
     }
 
     public virtual void ChangeHealth(int change, GameObject from)
     {
-        CurrentHealth += change;
-        if (CurrentHealth <= 0)
+        currentHealth += change;
+        if (currentHealth <= 0)
         {
             Die();
         }

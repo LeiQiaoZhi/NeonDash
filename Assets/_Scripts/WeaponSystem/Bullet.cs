@@ -66,7 +66,7 @@ public class Bullet : MonoBehaviour
     {
         if (LayerMaskHelper.IsLayerInLayerMask(col.gameObject.layer, targetLayers))
         {
-            OnTargetHit();
+            OnTargetHit(col.gameObject);
         }
         if (LayerMaskHelper.IsLayerInLayerMask(col.gameObject.layer, layersToDestroy))
         {
@@ -79,8 +79,13 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnTargetHit()
+    private void OnTargetHit(GameObject target)
     {
-        XLogger.Log(Category.Weapon,"Bullet hit target");
+        XLogger.Log(Category.Weapon,$"Bullet hit {target.name}");
+        var health = target.GetComponentInParent<Health>();
+        if (health)
+        {
+            health.ChangeHealth(-bulletProperties.damage, gameObject);
+        }
     }
 }
