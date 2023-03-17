@@ -623,6 +623,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 274911039, guid: afc9e0cc663eb5a4ba03cf61348d146c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274911039, guid: afc9e0cc663eb5a4ba03cf61348d146c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 274911040, guid: afc9e0cc663eb5a4ba03cf61348d146c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 699f426283ac2b744ab468bb53b3991e, type: 3}
+    - target: {fileID: 274911042, guid: afc9e0cc663eb5a4ba03cf61348d146c, type: 3}
+      propertyPath: m_UseGraphicAlpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274911042, guid: afc9e0cc663eb5a4ba03cf61348d146c, type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274911043, guid: afc9e0cc663eb5a4ba03cf61348d146c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1787050490514039357, guid: afc9e0cc663eb5a4ba03cf61348d146c, type: 3}
       propertyPath: m_Name
       value: CursorManager
