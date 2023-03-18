@@ -41,7 +41,7 @@ public class PlayerHealth : Health
         {
             Instantiate(heartItem, heartBar);
         }
-        for (int i = 0; i < maxHealth-currentHealth; i++)
+        for (int i = 0; i < maxHealth-Mathf.Max(0,currentHealth); i++)
         {
             Instantiate(notFullHeartItem, heartBar);
         }

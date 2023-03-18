@@ -10,12 +10,43 @@ public class Powerup : MonoBehaviour
     [Header("Text Notification")] public string pickupLine;
     public TextMeshProUGUI pickupText;
     public Color textColor;
+    public GameObject indicator;
+    public LayerMask destoryLayer;
 
     protected virtual void Start()
     {
         pickupText.enabled = false;
         pickupText.color = textColor;
         pickupText.text = pickupLine;
+        if (indicator)
+            indicator.GetComponent<SpriteRenderer>().color = textColor;
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        var viewPortPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (!InsideScreen(viewPortPos))
+        {
+            indicator.SetActive(true);
+            var indicatorViewPortPos = new Vector2(
+                Mathf.Clamp(viewPortPos.x, 0, 1),
+                Mathf.Clamp(viewPortPos.y, 0, 1)
+            );
+            var indicatorPos = Camera.main.ViewportToWorldPoint(indicatorViewPortPos);
+            indicatorPos.z = 0;
+            indicator.transform.position = indicatorPos;
+        }
+        else
+        {
+            indicator.SetActive(false);
+        }
+    }
+
+    private bool InsideScreen(Vector3 viewPortPos)
+    {
+        if (viewPortPos.x < 0 || viewPortPos.x > 1 || viewPortPos.y > 1 || viewPortPos.y < 0)
+            return false;
+        return true;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -24,6 +55,10 @@ public class Powerup : MonoBehaviour
         {
             OnPickUp(col);
             Destroy(gameObject, 3f);
+        }
+        if (LayerMaskHelper.IsLayerInLayerMask(col.gameObject.layer, destoryLayer))
+        {
+            Destroy(gameObject);
         }
     }
 

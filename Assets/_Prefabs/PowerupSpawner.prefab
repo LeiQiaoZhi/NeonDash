@@ -53,5 +53,5 @@ MonoBehaviour:
   - {fileID: 4545267167246104050, guid: f6d054ebed97daf459438865cc436dc1, type: 3}
   - {fileID: 4545267167246104050, guid: 6d82e236fb070214cb8e703ae6fd9aba, type: 3}
   laser: {fileID: 0}
-  spawnRate: 2
+  spawnRate: 5
   timer: 0

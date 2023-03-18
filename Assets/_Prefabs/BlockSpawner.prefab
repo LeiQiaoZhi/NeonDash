@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 6365051174854037797, guid: fb2fb3e45a7244020844773340c60fd7, type: 3}
-  spawnRate: 2
+  spawnRate: 0.5
   accelerRate: 1
   timerSpawn: 0
   timerSpeed: 0
