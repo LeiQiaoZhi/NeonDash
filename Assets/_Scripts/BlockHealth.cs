@@ -15,6 +15,9 @@ public class BlockHealth : Health
     {
         var effect = Instantiate(destoryEffect);
         effect.transform.position = transform.position;
+        ParticleSystem.MainModule mainModule = effect.main;
+        var color = GetComponentInChildren<SpriteRenderer>().color;
+        mainModule.startColor = color;
         Destroy(effect, 3f);
         Destroy(gameObject);
     }
