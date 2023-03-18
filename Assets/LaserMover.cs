@@ -7,12 +7,6 @@ public class LaserMover : MonoBehaviour
     public float moveSpeed = 0.2f;
     public float accRate = 5, timer = 0, dv = 0.2f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

@@ -19,9 +19,7 @@ public class BlockRandomColour : MonoBehaviour
 
     void SetRandomColour()
     {
-        var colorVec = new Vector3(Random.value, Random.value, Random.value);
-        colorVec = colorVec.normalized * colorIntensity;
-        color = new Color(colorVec.x, colorVec.y, colorVec.z);
+        var color = ColourHelper.GetRandomColour(colorIntensity);
         spriteRenderer.color = color;
         light2D.color = color;
     }

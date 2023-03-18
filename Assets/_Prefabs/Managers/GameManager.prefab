@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2882984514478111151}
   - component: {fileID: 2882984514478111150}
-  - component: {fileID: 438795691}
   - component: {fileID: 438795692}
   m_Layer: 0
   m_Name: GameManager
@@ -46,35 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba66e724bc08c7647af9c965cf1d455f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockDestoryScore: 10
---- !u!114 &438795691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2882984514478111152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db64a66747c59d04db81eced9d2de940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: e5b1c3291c124fc68e7440bcdba3a871, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2882984514478111150}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OnBlockDestory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &438795692
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 6365051174854037798}
   - component: {fileID: 6365051174854037799}
   - component: {fileID: -5925099488801671413}
-  - component: {fileID: -1613739378759385052}
   - component: {fileID: 2536037539987004359}
   - component: {fileID: 5607706931933334460}
   m_Layer: 7
@@ -154,7 +153,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   moveSpeed: 5
   dir: {x: 0, y: 0, z: 0}
-  spriteHolder: {fileID: 0}
+  spriteHolder: {fileID: 6365051175145270771}
 --- !u!114 &-5925099488801671413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,24 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   destoryEffect: {fileID: 8065448276858458971, guid: 399e2aa66b894aa468f6edb1a1f39616, type: 3}
-  blockDestroyedEvent: {fileID: 11400000, guid: e5b1c3291c124fc68e7440bcdba3a871, type: 2}
---- !u!114 &-1613739378759385052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6365051174854037797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c08b18d51c259e4e898a71e9078460b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 1
-  destorySelfOnHit: 1
+  healthText: {fileID: 4932285393048175089}
+  scoreTextCanvas: {fileID: 8367943820117075811, guid: d049816fbc8876540963e34108dad37b, type: 3}
 --- !u!114 &2536037539987004359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +190,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6365051174854037797}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -235,10 +218,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6365051175145270771}
+  - component: {fileID: 6603864712262033043}
   - component: {fileID: 6365051175145270772}
   - component: {fileID: 6365051175145270773}
+  - component: {fileID: 4435630795273441653}
   m_Layer: 7
-  m_Name: Rounded
+  m_Name: Sprite and Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,6 +245,23 @@ Transform:
   m_Father: {fileID: 6365051174854037798}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6603864712262033043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365051175145270770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c08b18d51c259e4e898a71e9078460b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 1
+  destorySelfOnHit: 1
 --- !u!212 &6365051175145270772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -338,7 +340,33 @@ MonoBehaviour:
   - {x: 1.0000001, y: -1, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 59184
+  m_InstanceId: 117270
+--- !u!61 &4435630795273441653
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365051175145270770}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.12, y: 0.13, z: 0.13, w: 0.13}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &8535669978568889068
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +552,7 @@ MonoBehaviour:
   m_FalloffIntensity: 0.568
   m_Color: {r: 0.18431371, g: 1, b: 0.7930001, a: 1}
   m_Intensity: 0.5
-  m_LightVolumeIntensity: 0.5
+  m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 21300000, guid: e7a80b17e7adf914cae9f291751b5df6, type: 3}

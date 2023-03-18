@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI meterText;
 
     private void Awake()
     {
@@ -60,4 +61,10 @@ public class UIManager : MonoBehaviour
     {
         scoreText.text = score.ToString();
     }
+
+    public void UpdateMeters(float meters)
+    {
+        meterText.text = $"{meters:F1}m";
+    }
+
 }
