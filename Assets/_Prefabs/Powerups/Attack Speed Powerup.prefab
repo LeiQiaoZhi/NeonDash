@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4545267167246104063}
   - component: {fileID: 4545267167246104062}
   m_Layer: 0
-  m_Name: AttackSpeedPowerup
+  m_Name: Attack Speed Powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   pickupLayer:
     serializedVersion: 2
     m_Bits: 256
-  pickupLine: Attach Speed ++
+  pickupLine: + Attach Speed +
   pickupText: {fileID: 4545267167507266504}
   textColor: {r: 1, g: 0.8640001, b: 0, a: 1}
   secondsBetweenFireReduceAmount: 0.1

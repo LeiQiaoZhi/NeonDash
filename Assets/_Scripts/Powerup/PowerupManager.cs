@@ -46,12 +46,20 @@ public class PowerupManager : MonoBehaviour
         weaponProperties.numBulletsTDLR[directionIndexTLDR] += change;
     }
 
-    public void ChangeBulletSpeed(float changeInBulletSpeed)
+    public void MultiplyBulletSpeed(float changeInBulletSpeed)
     {
         var bulletProperties = weaponHolder.weapon.bulletProperties;
         XLogger.Log(Category.PowerUp,
             $"bullet speed increased from {bulletProperties.speed} to {bulletProperties.speed + changeInBulletSpeed}");
         bulletProperties.speed += changeInBulletSpeed;
+    }
+
+    public void ChangePlayerSpeed(float change)
+    {
+        XLogger.Log(Category.PowerUp,
+            $"player movement speed increased from {playerMovement.runtimeMovementSettings.moveSpeed}"
+            + $"to {playerMovement.runtimeMovementSettings.moveSpeed + change}");
+        playerMovement.runtimeMovementSettings.moveSpeed += change;
     }
 
     public string GetStatsSummary()

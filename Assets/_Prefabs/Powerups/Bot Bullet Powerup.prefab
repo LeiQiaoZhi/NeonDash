@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4545267167246104063}
   - component: {fileID: 4545267167246104062}
   m_Layer: 0
-  m_Name: AttackSpeedPowerup 1
+  m_Name: Bot Bullet Powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,10 +67,10 @@ MonoBehaviour:
   pickupLayer:
     serializedVersion: 2
     m_Bits: 256
-  pickupLine: + Top Bullet +
+  pickupLine: + Bottom Bullet +
   pickupText: {fileID: 4545267167507266504}
   textColor: {r: 0.9960785, g: 0.23137257, b: 0.9960785, a: 1}
-  directionIndexTLDR: 0
+  directionIndexTLDR: 2
   changeAmount: 1
 --- !u!95 &4545267167246104062
 Animator:
@@ -267,7 +267,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c7955a4d5136bdb4588e6747f13a1966, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf3b97dbc8e6d5144b182b23408bb72c, type: 3}
   m_Color: {r: 0.9563513, g: 0.18431371, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
