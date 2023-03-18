@@ -54,6 +54,7 @@ public class BlockSpawner : MonoBehaviour
         {
             minSpeed = minSpeed + 1;
             maxSpeed = maxSpeed + 1;
+            spawnRate = spawnRate * 0.8f;
         }
         else timerSpeed = 0;
         if (timerSpawn < spawnRate)
