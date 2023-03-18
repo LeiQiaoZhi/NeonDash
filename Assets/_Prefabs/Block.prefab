@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1568008a8c6c4e94789f92372ddf8b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laser: {fileID: 0}
   moveSpeed: 5
   dir: {x: 0, y: 0, z: 0}
 --- !u!114 &-5925099488801671413
@@ -66,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   destoryEffect: {fileID: 8065448276858458971, guid: 399e2aa66b894aa468f6edb1a1f39616, type: 3}
+  blockDestroyedEvent: {fileID: 11400000, guid: 6c614143094709c4da1746dde02aeec7, type: 2}
 --- !u!114 &-1613739378759385052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +234,7 @@ MonoBehaviour:
   - {x: 1.0000001, y: -1, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -237278
+  m_InstanceId: 52620
 --- !u!1 &9199370039080273978
 GameObject:
   m_ObjectHideFlags: 0

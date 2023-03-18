@@ -9,6 +9,7 @@ public class PlayerHealth : Health
     public RectTransform heartBar;
     public GameObject heartItem;
     public GameObject notFullHeartItem;
+    public GameEvent gameOverEvent;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class PlayerHealth : Health
     protected override void Die()
     {
         XLogger.LogWarning(Category.Player, "Player has died.");
+        gameOverEvent.Raise();
     }
 
     public override void ChangeHealth(int change, GameObject from)

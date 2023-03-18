@@ -29,12 +29,12 @@ public class PowerupManager : MonoBehaviour
         weaponHolder = playerMovement.GetComponentInChildren<WeaponHolder>();
     }
 
-    public void ChangeAttackSpeed(float changeInSecondsBetweenFire)
+    public void MultiplyAttackSpeed(float secondsBetweenFireMultiplier)
     {
         var weaponProperties = weaponHolder.weapon.weaponProperties;
         XLogger.Log(Category.PowerUp,
-            $"Seconds between fire changed from {weaponProperties.secondsBetweenFire} to {weaponProperties.secondsBetweenFire + changeInSecondsBetweenFire}");
-        weaponProperties.secondsBetweenFire += changeInSecondsBetweenFire;
+            $"Seconds between fire changed from {weaponProperties.secondsBetweenFire} to {weaponProperties.secondsBetweenFire * secondsBetweenFireMultiplier}");
+        weaponProperties.secondsBetweenFire *= secondsBetweenFireMultiplier;
     }
 
     public void ChangeBulletNumberTLDR(int change, int directionIndexTLDR)

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private UIManager uiManager;
     private float startTime;
     private int score;
+    [SerializeField] private int blockDestoryScore;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +31,12 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        uiManager.SetEnableGameOverScreen(true);
     }
 
-    public void AddScore(int change)
+    public void OnBlockDestory()
     {
-        score += change;
+        score += blockDestoryScore;
         uiManager.UpdateScore(score);
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AttackSpeedPowerUp : Powerup
 {
-    public float secondsBetweenFireReduceAmount;
+    public float secondsBetweenFireMultiplier;
     protected override void OnPickUp(Collider2D col)
     {
         base.OnPickUp(col);
-        PowerupManager.Instance.ChangeAttackSpeed(-secondsBetweenFireReduceAmount);
+        PowerupManager.Instance.MultiplyAttackSpeed(secondsBetweenFireMultiplier);
     }
 }

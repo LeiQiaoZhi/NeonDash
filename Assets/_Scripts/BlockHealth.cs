@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlockHealth : Health
 {
     public ParticleSystem destoryEffect;
+    public GameEvent blockDestroyedEvent;
 
     public override void ChangeHealth(int change, GameObject from)
     {
@@ -20,5 +21,6 @@ public class BlockHealth : Health
         mainModule.startColor = color;
         Destroy(effect, 3f);
         Destroy(gameObject);
+        blockDestroyedEvent.Raise();
     }
 }

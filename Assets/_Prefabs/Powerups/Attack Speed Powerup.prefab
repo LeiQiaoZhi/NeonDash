@@ -70,7 +70,7 @@ MonoBehaviour:
   pickupLine: + Attach Speed +
   pickupText: {fileID: 4545267167507266504}
   textColor: {r: 1, g: 0.8640001, b: 0, a: 1}
-  secondsBetweenFireReduceAmount: 0.1
+  secondsBetweenFireMultiplier: 0.8
 --- !u!95 &4545267167246104062
 Animator:
   serializedVersion: 4
