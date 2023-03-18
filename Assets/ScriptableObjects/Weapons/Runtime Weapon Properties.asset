@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d42895a472941aa8f82e94a9cf20131, type: 3}
   m_Name: RUNTIME Weapon Properties
   m_EditorClassIdentifier: 
-  secondsBetweenFire: 0.3
+  secondsBetweenFire: 0.1
   halfWidth: 0.6
-  numBulletsTDLR: 01000000000000000000000000000000
-  knockBack: 20
+  numBulletsTDLR: 02000000010000000100000001000000
+  knockBack: 50
   bulletInaccuracyAngleRange: 4
