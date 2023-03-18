@@ -65,7 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5441136fad967be48927fd153c735a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSettings: {fileID: 11400000, guid: a970d45ebb5d90b4caca9c2ef6d40c07, type: 2}
+  startingMovementSettings: {fileID: 11400000, guid: a970d45ebb5d90b4caca9c2ef6d40c07, type: 2}
+  runtimeMovementSettings: {fileID: 11400000, guid: 6af6bfac775640a48b8e35d5aadfe989, type: 2}
 --- !u!114 &7722437353835007343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,7 +482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 90c7aa9358a78dc499f2a1a69898d54a, type: 2}
-  weaponSpriteRenderer: {fileID: 7722437354667343766}
 --- !u!1 &7722437355197457346
 GameObject:
   m_ObjectHideFlags: 0
