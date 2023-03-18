@@ -9,9 +9,10 @@ using UnityEngine;
 public class BlockSpawner : MonoBehaviour
 {
     public GameObject block;
-    public float spawnRate = 2;
-    public float timer = 0;
+    public float spawnRate = 10, accelerRate = 1;
+    public float timerSpawn = 0, timerSpeed = 0;
     public float lowX, highX, lowY, highY, Z;
+    public float minSpeed = 10, maxSpeed = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -53,8 +54,15 @@ public class BlockSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < spawnRate)
-            timer = timer + Time.deltaTime;
+        timerSpeed = timerSpeed + Time.deltaTime;
+        if (timerSpeed > accelerRate)
+        {
+            minSpeed = minSpeed + 1;
+            maxSpeed = maxSpeed + 1;
+        }
+        else timerSpeed = 0;
+        if (timerSpawn < spawnRate)
+            timerSpawn = timerSpawn + Time.deltaTime;
         else
         {
             PlayerInput player = FindObjectOfType<PlayerInput>();
@@ -67,9 +75,14 @@ public class BlockSpawner : MonoBehaviour
             highY = v.y;
             Z = v.z;
 
-            //var blockGO = Instantiate(block, getRandomPosition(player.transform.position), transform.rotation);
-            
-            timer = 0;
+            var pair = getRandomPosition(player.transform.position);
+            Vector2 position = pair.Key;
+            Vector3 dir = pair.Value;
+
+            var blockGO = Instantiate(block, position, transform.rotation);
+            var blockMover = blockGO.GetComponent<BlockMover>();
+            blockMover.SetMove(dir, minSpeed, maxSpeed);
+            timerSpawn = 0;
         }
     }
 
