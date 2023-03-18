@@ -9,7 +9,7 @@ using UnityEngine;
 public class BlockSpawner : MonoBehaviour
 {
     public GameObject block;
-    public float spawnRate = 10, accelerRate = 1;
+    public float spawnRate = 1, accelerRate = 20;
     public float timerSpawn = 0, timerSpeed = 0;
     public float lowX, highX, lowY, highY, Z;
     public float minSpeed = 10, maxSpeed = 15;
@@ -49,14 +49,15 @@ public class BlockSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerSpeed = timerSpeed + Time.deltaTime;
-        if (timerSpeed > accelerRate)
+        if (timerSpeed < accelerRate)
+            timerSpeed = timerSpeed + Time.deltaTime;
+        else
         {
-            minSpeed = minSpeed + 1;
-            maxSpeed = maxSpeed + 1;
-            spawnRate = spawnRate * 0.8f;
+            minSpeed = minSpeed + 0.05f;
+            maxSpeed = maxSpeed + 0.05f;
+            spawnRate = spawnRate * 0.95f;
+            timerSpeed = 0;
         }
-        else timerSpeed = 0;
         if (timerSpawn < spawnRate)
             timerSpawn = timerSpawn + Time.deltaTime;
         else
