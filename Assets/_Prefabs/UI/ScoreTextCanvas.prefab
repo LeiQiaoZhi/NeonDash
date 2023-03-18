@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8988317830457773205}
   - component: {fileID: 224487853916599287}
   - component: {fileID: 1819221583334654956}
+  - component: {fileID: 7984427004097553672}
   m_Layer: 5
   m_Name: ScoreTextCanvas
   m_TagString: Untagged
@@ -84,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &224487853916599287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +116,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 1.1
+--- !u!114 &7984427004097553672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4078923663023453249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ef912d6833b734ebdf9720cd6cc70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4205938976942701318
 GameObject:
   m_ObjectHideFlags: 0

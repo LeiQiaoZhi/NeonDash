@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BlockHealth : Health
 {
     public ParticleSystem destoryEffect;
     public TextMeshProUGUI healthText;
     public Canvas scoreTextCanvas;
+    public GameObject residuePrefab;
 
     private GameManager gameManager;
 
@@ -24,30 +26,39 @@ public class BlockHealth : Health
         healthText.text = currentHealth.ToString();
     }
 
-    protected override void Die()
+    protected override void Die(GameObject from)
     {
-        // effect
+        // particle effect
         var effect = Instantiate(destoryEffect);
         effect.transform.position = transform.position;
         ParticleSystem.MainModule mainModule = effect.main;
         var blockColor = GetComponentInChildren<SpriteRenderer>().color;
         mainModule.startColor = blockColor;
         Destroy(effect, 3f);
-        
-        // score
-        gameManager.AddScore(maxHealth);
-        
-        // score text
-        var canvas = Instantiate(scoreTextCanvas);
-        canvas.GetComponent<RectTransform>().anchoredPosition = transform.position;
-        var scoreText = canvas.GetComponentInChildren<TextMeshProUGUI>();
-        scoreText.enabled = true;
-        scoreText.text = $"+{maxHealth}";
-        scoreText.color = blockColor;
-        
-        // screen shake
-        ScreenShaker.Instance.ShakeCamera();
-        
+
+        // residue
+        var residue = Instantiate(residuePrefab, transform.position,
+            Quaternion.AngleAxis(Random.Range(0, 180), Vector3.forward));
+        residue.GetComponent<SpriteRenderer>().color = blockColor;
+
+        if (from.CompareTag("Player"))
+        {
+            // score
+            gameManager.AddScore(maxHealth);
+
+            // score text
+            var canvas = Instantiate(scoreTextCanvas);
+            canvas.GetComponent<RectTransform>().anchoredPosition = transform.position;
+            var scoreText = canvas.GetComponentInChildren<TextMeshProUGUI>();
+            scoreText.enabled = true;
+            scoreText.text = $"+{maxHealth}";
+            scoreText.color = blockColor;
+
+
+            // screen shake
+            ScreenShaker.Instance.ShakeCamera();
+        }
+
         Destroy(gameObject);
     }
 }

@@ -24,7 +24,7 @@ public class PlayerHealth : Health
         }
     }
 
-    protected override void Die()
+    protected override void Die(GameObject from)
     {
         XLogger.LogWarning(Category.Player, "Player has died.");
         gameOverEvent.Raise();

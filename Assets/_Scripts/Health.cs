@@ -19,9 +19,9 @@ public abstract class Health : MonoBehaviour
         currentHealth += change;
         if (currentHealth <= 0)
         {
-            Die();
+            Die(from);
         }
     }
 
-    protected abstract void Die();
+    protected abstract void Die(GameObject from);
 }

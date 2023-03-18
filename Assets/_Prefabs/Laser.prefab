@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c08b18d51c259e4e898a71e9078460b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLayer:
+  targetLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   damage: 100
   destorySelfOnHit: 0
 --- !u!114 &8185007021103942873
@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0a8cd017c789f44a00a36e91ed1df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   followX: 1
   followY: 0
 --- !u!61 &8185007021103942872

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7612312856660976515}
   - component: {fileID: 4723243975040838745}
   - component: {fileID: 2039723242099393482}
+  - component: {fileID: 6926700930960631256}
   m_Layer: 5
   m_Name: BlockHealthCanvas
   m_TagString: Untagged
@@ -101,6 +102,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6926700930960631256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471456637379218266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ef912d6833b734ebdf9720cd6cc70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6365051174854037797
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +126,6 @@ GameObject:
   - component: {fileID: 6365051174854037799}
   - component: {fileID: -5925099488801671413}
   - component: {fileID: 2536037539987004359}
-  - component: {fileID: 5607706931933334460}
   m_Layer: 7
   m_Name: Block
   m_TagString: Untagged
@@ -129,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6365051174854037797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.14, y: 5.51, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -150,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1568008a8c6c4e94789f92372ddf8b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 0}
   moveSpeed: 5
   dir: {x: 0, y: 0, z: 0}
   spriteHolder: {fileID: 6365051175145270771}
@@ -170,6 +181,7 @@ MonoBehaviour:
   destoryEffect: {fileID: 8065448276858458971, guid: 399e2aa66b894aa468f6edb1a1f39616, type: 3}
   healthText: {fileID: 4932285393048175089}
   scoreTextCanvas: {fileID: 8367943820117075811, guid: d049816fbc8876540963e34108dad37b, type: 3}
+  residuePrefab: {fileID: 2570206840920185897, guid: f5a811d1a42c481468d1954dd8abc971, type: 3}
 --- !u!114 &2536037539987004359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,32 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorIntensity: 1
---- !u!61 &5607706931933334460
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6365051174854037797}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.0151167, y: 2.0151167}
-  m_EdgeRadius: 0
 --- !u!1 &6365051175145270770
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +208,7 @@ GameObject:
   - component: {fileID: 6365051175145270772}
   - component: {fileID: 6365051175145270773}
   - component: {fileID: 4435630795273441653}
+  - component: {fileID: 371928581830653980}
   m_Layer: 7
   m_Name: Sprite and Collider
   m_TagString: Untagged
@@ -257,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c08b18d51c259e4e898a71e9078460b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 256
   damage: 1
@@ -340,7 +327,7 @@ MonoBehaviour:
   - {x: 1.0000001, y: -1, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 117270
+  m_InstanceId: 175886
 --- !u!61 &4435630795273441653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -367,6 +354,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!50 &371928581830653980
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365051175145270770}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8535669978568889068
 GameObject:
   m_ObjectHideFlags: 0

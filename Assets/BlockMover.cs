@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BlockMover : MonoBehaviour
 {
-    public LaserMover laser;
     public float moveSpeed;
     public Vector3 dir;
     public Transform spriteHolder;
@@ -12,25 +11,25 @@ public class BlockMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        laser = FindObjectOfType<LaserMover>();
         spriteHolder.transform.localScale = new Vector2(Random.Range(1.0f, 4.0f), Random.Range(1.0f, 4.0f));
+        // laser = FindObjectOfType<LaserMover>();
         //transform.localScale = new Vector2(1, 1);
     }
 
-    public void SetMove(Vector3 dir, float start, float end)
+    public void SetMove(Vector3 direction, float start, float end)
     {
-        this.dir = dir;
-        this.moveSpeed = Random.Range(start, end);
+        dir = direction;
+        moveSpeed = Random.Range(start, end);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y - spriteHolder.transform.localScale.y / 2 <= laser.transform.position.y &&
-            transform.position.y + spriteHolder.transform.localScale.y / 2 >= laser.transform.position.y)
-            Destroy(gameObject);
-        if (transform.position.y < laser.transform.position.y)
-            Destroy(gameObject);
-        transform.position = transform.position + (dir * moveSpeed) * Time.deltaTime;
+        // if (transform.position.y - spriteHolder.transform.localScale.y / 2 <= laser.transform.position.y &&
+        //     transform.position.y + spriteHolder.transform.localScale.y / 2 >= laser.transform.position.y)
+        //     Destroy(gameObject);
+        // if (transform.position.y < laser.transform.position.y)
+        //     Destroy(gameObject);
+        transform.position += dir * (moveSpeed * Time.deltaTime);
     }
 }
