@@ -26,7 +26,7 @@ public class BlockSpawner : MonoBehaviour
         Vector3 dir = Vector3.zero;
         do
         {
-            int id = Random.Range(0, 4);
+            int id = Random.Range(0, 3);
             if (id == 0)
             {
                 dir = Vector3.right;
@@ -38,11 +38,6 @@ public class BlockSpawner : MonoBehaviour
                 p = new Vector2(highX, Random.Range(lowY, highY));
             }
             if (id == 2)
-            {
-                dir = Vector3.up;
-                p = new Vector2(Random.Range(lowX, highX), lowY);
-            }
-            if (id == 3)
             {
                 dir = Vector3.down;
                 p = new Vector2(Random.Range(lowX, highX), highY);
