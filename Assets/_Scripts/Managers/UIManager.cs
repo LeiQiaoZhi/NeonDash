@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,6 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject levelEndScreen;
     [SerializeField] GameObject pauseScreen;
+    [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] TextMeshProUGUI scoreText;
 
     private void Awake()
     {
@@ -47,4 +50,14 @@ public class UIManager : MonoBehaviour
         pauseScreen.SetActive(false);
         Time.timeScale = 1;
     }
-  }
+
+    public void UpdateTime(float time)
+    {
+        timeText.text = $"{Math.Round(time,1):F1}s";
+    }
+
+    public void UpdateScore(int score)
+    {
+        scoreText.text = score.ToString();
+    }
+}
