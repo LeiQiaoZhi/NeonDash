@@ -28,6 +28,8 @@ public class BlockMover : MonoBehaviour
         if (transform.position.y - transform.localScale.y / 2 <= laser.transform.position.y &&
             transform.position.y + transform.localScale.y / 2 >= laser.transform.position.y)
             Destroy(gameObject);
+        if (transform.position.y < laser.transform.position.y)
+            Destroy(gameObject);
         transform.position = transform.position + (dir * moveSpeed) * Time.deltaTime;
     }
 }
