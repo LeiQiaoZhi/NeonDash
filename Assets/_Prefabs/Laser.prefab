@@ -153,6 +153,36 @@ MonoBehaviour:
   moveSpeed: 1
   accRate: 15
   timer: 0
+<<<<<<< Updated upstream
+=======
+  dv: 0.2
+--- !u!61 &8498412720376828927
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714423129626448411}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+>>>>>>> Stashed changes
 --- !u!114 &1154342770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,4 +352,8 @@ MonoBehaviour:
   - {x: 1.0000001, y: -1, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
+<<<<<<< Updated upstream
   m_InstanceId: 52888
+=======
+  m_InstanceId: -1384
+>>>>>>> Stashed changes

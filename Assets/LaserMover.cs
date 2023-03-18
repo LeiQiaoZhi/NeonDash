@@ -5,7 +5,7 @@ using UnityEngine;
 public class LaserMover : MonoBehaviour
 {
     public float moveSpeed = 0.2f;
-    public float accRate = 15, timer = 0;
+    public float accRate = 5, timer = 0, dv = 0.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class LaserMover : MonoBehaviour
             timer = timer + Time.deltaTime;
         else
         {
-            moveSpeed = moveSpeed + 0.1f;
+            moveSpeed = moveSpeed + dv;
             timer = 0;
         }
         transform.position = transform.position + (Vector3.up * moveSpeed) * Time.deltaTime;
