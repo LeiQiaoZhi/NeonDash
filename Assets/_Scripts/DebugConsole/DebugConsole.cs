@@ -21,7 +21,8 @@ public class DebugConsole : MonoBehaviour
         {
             DebugCommandList.TestCommand,
             DebugCommandList.QuitCommand,
-            DebugCommandList.HelpCommand
+            DebugCommandList.HelpCommand,
+            DebugCommandList.StatsCommand
         };
     }
 
@@ -32,8 +33,11 @@ public class DebugConsole : MonoBehaviour
             console.SetActive(!console.activeSelf);
             if (console.activeSelf)
             {
+                Time.timeScale = 0;
                 inputField.Select();
             }
+            else
+                Time.timeScale = 1;
         }
 
         if (console.activeSelf)
@@ -80,9 +84,13 @@ public class DebugConsole : MonoBehaviour
             XLogger.LogWarning(Category.DebugConsole, result);
         }
 
+        var historyCommand = Instantiate(historyTextPrefab, historyContainer);
+        var tmpCmd = historyCommand.GetComponent<TextMeshProUGUI>();
+        tmpCmd.text = input;
+        tmpCmd.color = valid ? Color.green : Color.yellow;
         var history = Instantiate(historyTextPrefab, historyContainer);
-        var tmp = history.GetComponent<TextMeshProUGUI>();
-        tmp.text = result;
-        tmp.color = valid ? Color.green : Color.yellow;
+        var tmpResult = history.GetComponent<TextMeshProUGUI>();
+        tmpResult.text = result;
+        tmpResult.color = valid ? Color.white : Color.yellow;
     }
 }

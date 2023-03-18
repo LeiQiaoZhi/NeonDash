@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d42895a472941aa8f82e94a9cf20131, type: 3}
-  m_Name: RUNTIME Weapon Properties
+  m_Script: {fileID: 11500000, guid: b4492061fcf0448e8d516d5712becd31, type: 3}
+  m_Name: DEFAULT_PlayerMovementSetting
   m_EditorClassIdentifier: 
-  secondsBetweenFire: 0.3
-  halfWidth: 0.6
-  numBulletsTDLR: 01000000000000000000000000000000
-  knockBack: 20
-  bulletInaccuracyAngleRange: 4
+  moveSpeed: 60
+  rotationSpeed: 1000
+  accleration: 60

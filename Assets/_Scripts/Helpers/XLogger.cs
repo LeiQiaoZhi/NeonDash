@@ -17,7 +17,8 @@ namespace UnityEngine
         UI,
         DebugConsole,
         Settings,
-        PowerUp
+        PowerUp,
+        Player
     }
     
     public static class XLogger

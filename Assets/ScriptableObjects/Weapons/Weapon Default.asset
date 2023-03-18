@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e0a7f610979a974492dbf2596beeebe, type: 3}
-  m_Name: Default Weapon
+  m_Name: Weapon Default
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 53324104487728375, guid: 8507d4526a952cc48a2b0ffda455877b, type: 3}
   firePointOffset: 1
+  startingBulletProperties: {fileID: 11400000, guid: d816594e4415fe843bfb94c70b15e3de, type: 2}
+  startingWeaponProperties: {fileID: 11400000, guid: 850808b4048a490418f3b1ad4293b211, type: 2}
+  bulletProperties: {fileID: 11400000, guid: b31d5f7e14a25bf41a1b2f2fba161070, type: 2}
   weaponProperties: {fileID: 11400000, guid: b06af2067cea3364cba5f525685c9034, type: 2}

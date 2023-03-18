@@ -11,27 +11,35 @@ using UnityEngine.Rendering.Universal;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
-    public BulletProperties bulletProperties;
     public LayerMask layersToDestroy;
     public LayerMask targetLayers;
     [Header("Effects")] 
     public ParticleSystem hitEffect;
     public float fadeDuration;
-    
 
+
+    private BulletProperties bulletProperties; 
     private Rigidbody2D _rb;
     private SpriteRenderer[] _spriteRenderers;
     private Light2D[] _light2Ds;
 
     // Start is called before the first frame update
-    public void Init(Vector2 direction)
+    // ReSharper disable Unity.PerformanceAnalysis
+    public void Init(Vector2 direction, BulletProperties properties)
     {
+        bulletProperties = properties;
         _rb = GetComponent<Rigidbody2D>();
         _rb.velocity = direction.normalized * bulletProperties.speed;
         _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         _light2Ds = GetComponentsInChildren<Light2D>();
         Destroy(gameObject, bulletProperties.lifeTime);
         StartCoroutine(Fade());
+
+        BulletDivision bulletDivision = GetComponent<BulletDivision>();
+        if (bulletDivision && bulletDivision.enabled)
+        {
+            bulletDivision.StartCoroutine(bulletDivision.Init());
+        }
     }
 
     private IEnumerator Fade()
@@ -87,5 +95,10 @@ public class Bullet : MonoBehaviour
         {
             health.ChangeHealth(-bulletProperties.damage, gameObject);
         }
+    }
+
+    public BulletProperties GetBulletProperty()
+    {
+        return bulletProperties;
     }
 }

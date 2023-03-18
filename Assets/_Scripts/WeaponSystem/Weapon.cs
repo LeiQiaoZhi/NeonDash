@@ -5,7 +5,10 @@ public class Weapon : ScriptableObject
 {
     public GameObject bulletPrefab;
     public float firePointOffset = 0.5f;
-
+    public BulletProperties startingBulletProperties;
+    public WeaponProperties startingWeaponProperties;
+    [Header("Runtime")]
+    public BulletProperties bulletProperties;
     public WeaponProperties weaponProperties;
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -24,7 +27,7 @@ public class Weapon : ScriptableObject
                     + (Vector3)tangentRight * weaponProperties.GetHorizontalOffset(i, numBullets);
 
                 var bullet = Instantiate(bulletPrefab, bulletPos, holder.transform.rotation);
-                bullet.GetComponent<Bullet>().Init(weaponProperties.GetRandomDirectionInRange(direction));
+                bullet.GetComponent<Bullet>().Init(weaponProperties.GetRandomDirectionInRange(direction),bulletProperties);
             }
         }
 
@@ -33,14 +36,14 @@ public class Weapon : ScriptableObject
 
     protected IEnumerator KnockBack(Rigidbody2D rb, Vector2 direction, float time)
     {
-        float normalAcc = rb.GetComponent<Movement>().movementSettings.accleration;
-        rb.GetComponent<Movement>().movementSettings.accleration /= 10;
+        float normalAcc = rb.GetComponent<Movement>().runtimeMovementSettings.accleration;
+        rb.GetComponent<Movement>().runtimeMovementSettings.accleration /= 10;
         float until = Time.time + time;
         while (Time.time < until)
         {
             rb.velocity += direction * (weaponProperties.knockBack * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
-        rb.GetComponent<Movement>().movementSettings.accleration *= 10;
+        rb.GetComponent<Movement>().runtimeMovementSettings.accleration *= 10;
     }
 }

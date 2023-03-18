@@ -6,20 +6,12 @@ using UnityEngine;
 
 public class BulletDivision : MonoBehaviour
 {
-    public BulletProperties bulletProperties;
     private Rigidbody2D rb;
     private bool initialBullet = true;
 
     private int numRecursiveDivision;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        if (initialBullet)
-        {
-            numRecursiveDivision = bulletProperties.numRecursiveDivision;
-        }
-    }
+    private BulletProperties bulletProperties;
+    
 
     public void SetNumRecursive(int num)
     {
@@ -27,8 +19,19 @@ public class BulletDivision : MonoBehaviour
         initialBullet = false;
     }
 
-    private IEnumerator Start()
+    // ReSharper disable Unity.PerformanceAnalysis
+    public IEnumerator Init()
     {
+        bulletProperties = GetComponent<Bullet>().GetBulletProperty();
+        rb = GetComponent<Rigidbody2D>();
+        if (bulletProperties.numBulletsDivided <= 1)
+        {
+            yield break;
+        }
+        if (initialBullet)
+        {
+            numRecursiveDivision = bulletProperties.numRecursiveDivision;
+        }
         yield return new WaitForSeconds(bulletProperties.delayBeforeDivision);
         
         // divide the bullet
@@ -47,7 +50,7 @@ public class BulletDivision : MonoBehaviour
                           i * bulletProperties.angleBetweenBullets;
             Vector2 direction = RotateHelper.Rotate(rb.velocity, angle);
             var bullet = bulletGO.GetComponent<Bullet>();
-            bullet.Init(direction);
+            bullet.Init(direction,bulletProperties);
         }
         
         Destroy(gameObject);

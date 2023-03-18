@@ -20,6 +20,21 @@ public class WeaponProperties : ScriptableObject
         float angle = Random.Range(-bulletInaccuracyAngleRange, bulletInaccuracyAngleRange);
         return Quaternion.AngleAxis(angle, Vector3.forward) * direction;
     }
+
+    public string TLDRtoString(int directionIndex)
+    {
+        switch (directionIndex)
+        {
+            case 0:
+                return "Top";
+            case 1:
+                return "Left";
+            case 2:
+                return "Down";
+            default:
+                return "Right";
+        }
+    }
     public Vector2 GetDirection(int directionIndex, Transform transform)
     {
         switch (directionIndex)

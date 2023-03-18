@@ -22,8 +22,15 @@ public static class DebugCommandList
         {
             XLogger.LogWarning(Category.DebugConsole, "Help Command");
             var help = "Actions: [Tab] to toggle debug console; [Enter] to enter command\n" +
-                       "Commands: help -- show help, quit -- close console";
+                       "Commands: help -- show help, quit -- close console, stats -- show stats";
             return help;
+        });
+    
+    public static DebugCommand StatsCommand =
+        new DebugCommand("stats", (console) =>
+        {
+            XLogger.LogWarning(Category.DebugConsole, "Stats Command");
+            return PowerupManager.Instance.GetStatsSummary();
         });
 
 }

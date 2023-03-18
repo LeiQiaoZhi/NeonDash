@@ -14,8 +14,8 @@ public class DashAbility : Ability
     private Rigidbody2D _rb;
     public override void OnActivate(AbilityHolder abilityHolder)
     {
-        _normalSpeed = abilityHolder.GetComponent<Movement>().movementSettings.moveSpeed;
-        abilityHolder.GetComponent<Movement>().movementSettings.moveSpeed *= dashSpeedMultiplier;
+        _normalSpeed = abilityHolder.GetComponent<Movement>().runtimeMovementSettings.moveSpeed;
+        abilityHolder.GetComponent<Movement>().runtimeMovementSettings.moveSpeed *= dashSpeedMultiplier;
         _rb = abilityHolder.GetComponent<Rigidbody2D>();
     }
 
@@ -29,6 +29,6 @@ public class DashAbility : Ability
 
     public override void OnCoolDown(AbilityHolder abilityHolder)
     {
-        abilityHolder.GetComponent<Movement>().movementSettings.moveSpeed = _normalSpeed;
+        abilityHolder.GetComponent<Movement>().runtimeMovementSettings.moveSpeed = _normalSpeed;
     }
 }
