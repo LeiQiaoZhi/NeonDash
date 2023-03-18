@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 10
-  lifeTime: 1
+  lifeTime: 1.5
   numBulletsDivided: 1
   angleBetweenBullets: 10
   delayBeforeDivision: 0
