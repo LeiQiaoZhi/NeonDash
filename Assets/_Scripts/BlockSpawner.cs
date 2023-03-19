@@ -10,16 +10,17 @@ using Random = UnityEngine.Random;
 public class BlockSpawner : MonoBehaviour
 {
     public GameObject blockPrefab;
+    public GameObject heartBlockPrefab;
+    public float heartSpawnChance = 0.1f;
 
-    public float secondsBetweenSpawn = 1, secondsBetweenAccelerate = 10;
+    [Header("Rates")] public float secondsBetweenSpawn = 1, secondsBetweenAccelerate = 10;
     public int blockHealth = 2;
-    [Header("Accelerate")] 
-    public float speedIncrease = 0.05f;
+    [Header("Accelerate")] public float speedIncrease = 0.05f;
     public float secondsBetweenSpawnMultiplier = 0.95f;
     public float blockHealthMultiplier = 1.5f;
     [Header("Block Speed")] public float minSpeed = 10;
     public float maxSpeed = 15;
-    
+
     // [Header("ScreenDimensions")] public float lowX, highX, lowY, highY;
 
     private float timerSpawn = 0, timerSpeed = 0;
@@ -31,7 +32,7 @@ public class BlockSpawner : MonoBehaviour
     {
         player = FindObjectOfType<PlayerInput>();
         playerMovement = player.GetComponent<Movement>();
-        
+
         StartCoroutine(Spawn());
         StartCoroutine(IncreaseSpawnRate());
     }
@@ -44,7 +45,7 @@ public class BlockSpawner : MonoBehaviour
         v = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
         var highX = v.x;
         var highY = v.y;
-        
+
         Vector2 p = Vector2.zero;
         Vector3 dir = Vector3.zero;
         do
@@ -107,7 +108,7 @@ public class BlockSpawner : MonoBehaviour
             minSpeed += speedIncrease;
             maxSpeed += speedIncrease;
             secondsBetweenSpawn *= secondsBetweenSpawnMultiplier;
-            blockHealth = Mathf.RoundToInt((blockHealth+1) * blockHealthMultiplier);
+            blockHealth = Mathf.RoundToInt((blockHealth + 1) * blockHealthMultiplier);
         }
     }
 
@@ -116,8 +117,25 @@ public class BlockSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(secondsBetweenSpawn);
-            CreateBlock();
+            if (Random.value < heartSpawnChance)
+            {
+                CreateHeartBlock();
+            }
+            else
+            {
+                CreateBlock();
+            }
         }
+    }
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void CreateHeartBlock()
+    {
+        var (position, dir) = GetRandomPosition(player.transform.position);
+        var blockGO = Instantiate(heartBlockPrefab, position, Quaternion.identity);
+        blockGO.GetComponent<Health>().SetMaxHealth(blockHealth);
+        var blockMover = blockGO.GetComponent<BlockMover>();
+        blockMover.SetMove(dir, minSpeed, maxSpeed); 
     }
 
     // ReSharper disable Unity.PerformanceAnalysis

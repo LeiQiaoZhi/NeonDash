@@ -2698,6 +2698,10 @@ PrefabInstance:
       propertyPath: achievementNames.Array.data[0]
       value: Default
       objectReference: {fileID: 0}
+    - target: {fileID: 6519753008320436352, guid: 1c783d052fe2de94ebe52595a9b3c0a3, type: 3}
+      propertyPath: deathCountAchievements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6519753008320436353, guid: 1c783d052fe2de94ebe52595a9b3c0a3, type: 3}
       propertyPath: m_RootOrder
       value: 9

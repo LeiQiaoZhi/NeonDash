@@ -35,13 +35,13 @@ public class AchievementManager : MonoBehaviour
 
     public int GetDeathCount()
     {
-        return PlayerPrefs.GetInt("Death Count", 0);
+        return PlayerPrefs.GetInt("deaths", 0);
     }
 
     public void IncreaseDeathCount()
     {
-        int deathCount = PlayerPrefs.GetInt("Death Count", 0)+1;
-        PlayerPrefs.SetInt("Death Count", deathCount);
+        int deathCount = PlayerPrefs.GetInt("deaths", 0)+1;
+        PlayerPrefs.SetInt("deaths", deathCount);
         int achieved = -1;
         foreach (var deathCountAchievement in deathCountAchievements)
         {
