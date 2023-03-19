@@ -95,4 +95,20 @@ public class PowerupManager : MonoBehaviour
     {
         playerHealth.ChangeHealth(restoreAmount, gameObject);
     }
+
+    public void BulletDivide(int numBulletDividedIncrease, float angleBetweenBullets, float delayBeforeDivision,
+        int numDivisionRecursionIncrease)
+    {
+        var bulletProperties = weaponHolder.weapon.bulletProperties;
+        bulletProperties.numBulletsDivided += numBulletDividedIncrease;
+        bulletProperties.angleBetweenBullets = angleBetweenBullets;
+        bulletProperties.delayBeforeDivision = delayBeforeDivision;
+        bulletProperties.numRecursiveDivision += numDivisionRecursionIncrease;
+    }
+
+    public void MultiplyBulletLifeTime(float rangeMultiplier)
+    {
+        var bulletProperties = weaponHolder.weapon.bulletProperties;
+        bulletProperties.lifeTime *= rangeMultiplier; 
+    }
 }

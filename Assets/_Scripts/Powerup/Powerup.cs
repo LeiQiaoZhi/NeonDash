@@ -53,8 +53,11 @@ public class Powerup : MonoBehaviour
     {
         if (LayerMaskHelper.IsLayerInLayerMask(col.gameObject.layer, pickupLayer))
         {
+            // pick up text animation
+            GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
+            pickupText.enabled = true;
+            pickupText.GetComponent<Animator>().Play("PickupText");
             OnPickUp(col);
-            Destroy(gameObject, 3f);
         }
         if (LayerMaskHelper.IsLayerInLayerMask(col.gameObject.layer, destoryLayer))
         {
@@ -65,8 +68,6 @@ public class Powerup : MonoBehaviour
     protected virtual void OnPickUp(Collider2D col)
     {
         XLogger.Log(Category.PowerUp, $"{gameObject.name} picked up by {col.gameObject.name}");
-        GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
-        pickupText.enabled = true;
-        pickupText.GetComponent<Animator>().Play("PickupText");
+        Destroy(gameObject, 3f);
     }
 }

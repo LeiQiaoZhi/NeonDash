@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerHealth>().gameObject;
-        Time.timeScale = 1;
         startTime = Time.time;
         uiManager = FindObjectOfType<UIManager>();
         StartCoroutine(TakeTime());
