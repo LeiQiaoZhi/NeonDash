@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Countdown : MonoBehaviour
 {
-    public GameObject Three, Two, One;
+    public GameObject threePrefab, twoPrefab, onePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -16,15 +16,15 @@ public class Countdown : MonoBehaviour
     {
         Time.timeScale = 0;
         
-        Instantiate(Three, transform.position, Quaternion.identity);
-        Destroy(Three);
+        var three = Instantiate(threePrefab, transform.position, Quaternion.identity);
         yield return new WaitForSecondsRealtime(1);
-        Instantiate(Two, transform.position, Quaternion.identity);
-        Destroy(Two);
+        Destroy(three);
+        var two = Instantiate(twoPrefab, transform.position, Quaternion.identity);
         yield return new WaitForSecondsRealtime(1);
-        Instantiate(One, transform.position, Quaternion.identity);
-        Destroy(One);
+        Destroy(two);
+        var one = Instantiate(onePrefab, transform.position, Quaternion.identity);
         yield return new WaitForSecondsRealtime(1);
+        Destroy(one);
 
         Time.timeScale = 1;
     }

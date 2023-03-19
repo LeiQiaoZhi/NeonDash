@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &4545267167246104050
 GameObject:
@@ -62,13 +62,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4545267167246104050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a5a0197b024a4599cbf7ef6b209796, type: 3}
+  m_Script: {fileID: 11500000, guid: b07a71ec423b4d668ea627eb8fb9d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickupLayer:
     serializedVersion: 2
     m_Bits: 256
-  pickupLine: + Bullet Divided +
+  pickupLine: 'BULLET DIVISION '
   pickupText: {fileID: 4545267167507266504}
   textColor: {r: 0.18431371, g: 0.6883888, b: 1, a: 1}
   indicator: {fileID: 6743235853408537028}
@@ -76,11 +76,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   numBulletDividedIncrease: 2
-  numDivisionRecursionIncrease: 2
+  numDivisionRecursionIncrease: 3
   angleBetweenBullets: 20
-  delayBeforeDivision: 0.2
+  delayBeforeDivision: 0.1
   bulletLifetimeMultiplier: 0.9
-  effectLifeTime: 4
+  effectLifeTime: 6
 --- !u!95 &4545267167246104062
 Animator:
   serializedVersion: 4
