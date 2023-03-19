@@ -13,21 +13,22 @@ public class BlockSpawner : MonoBehaviour
     public GameObject heartBlockPrefab;
     public float heartSpawnChance = 0.1f;
 
-    [Header("Rates")] public float secondsBetweenSpawn = 1, secondsBetweenAccelerate = 10, reduceDropSpeed = 5;
-    public int blockHealth = 2;
+    [Header("Rates")] public float secondsBetweenSpawn = 1, secondsBetweenAccelerate = 10, secondsBetweenBoss = 10;
+    public int blockHealth = 2, reduceDropSpeed = 5;
     [Header("Accelerate")] public float speedIncrease = 0.1f;
     public float secondsBetweenSpawnMultiplier = 0.95f;
     public float blockHealthMultiplier = 1.5f;
     [Header("Block Speed")] public float minSpeed = 10;
     public float maxSpeed = 15;
-    [Header("Block Size")] public float minSize = 0.1f;
-    public float maxSize = 0.4f;
+    [Header("Block Size")] public float minSize = 1f;
+    public float maxSize = 4f, bossSize = 6f;
 
     // [Header("ScreenDimensions")] public float lowX, highX, lowY, highY;
 
     private float timerSpawn = 0, timerSpeed = 0;
     private PlayerInput player;
     private Movement playerMovement;
+    private bool Boss = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class BlockSpawner : MonoBehaviour
         playerMovement = player.GetComponent<Movement>();
 
         StartCoroutine(Spawn());
+        StartCoroutine(BossSpawn());
         StartCoroutine(IncreaseSpawnRate());
     }
 
@@ -119,6 +121,8 @@ public class BlockSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(secondsBetweenSpawn);
+            //if (Boss)
+            //    continue;
             if (Random.value < heartSpawnChance)
             {
                 CreateHeartBlock();
@@ -130,6 +134,16 @@ public class BlockSpawner : MonoBehaviour
         }
     }
 
+    IEnumerator BossSpawn()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(secondsBetweenBoss);
+            //Boss = true;
+            CreateBossBlock();
+        }
+    }
+
     // ReSharper disable Unity.PerformanceAnalysis
     private void CreateHeartBlock()
     {
@@ -138,7 +152,7 @@ public class BlockSpawner : MonoBehaviour
         blockGO.GetComponent<Health>().SetMaxHealth(blockHealth);
         var blockMover = blockGO.GetComponent<BlockMover>();
         var size = Random.Range(minSize, maxSize);
-        blockMover.SetMove(dir, minSpeed, maxSpeed, size, size); 
+        blockMover.SetMove(dir, minSpeed - reduceDropSpeed, maxSpeed - reduceDropSpeed, size, size);
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -151,6 +165,18 @@ public class BlockSpawner : MonoBehaviour
         if (dir == Vector3.down)
             blockMover.SetMove(dir, minSpeed - reduceDropSpeed, maxSpeed - reduceDropSpeed, minSize, maxSize);
         else blockMover.SetMove(dir, minSpeed, maxSpeed, minSize, maxSize);
+    }
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void CreateBossBlock()
+    {
+        var (position, dir) = GetRandomPosition(player.transform.position);
+        var blockGO = Instantiate(blockPrefab, position, Quaternion.identity);
+        blockGO.GetComponent<Health>().SetMaxHealth(Mathf.Max(blockHealth * 2, 10));
+        var blockMover = blockGO.GetComponent<BlockMover>();
+        if (dir == Vector3.down)
+            blockMover.SetMove(dir, minSpeed - reduceDropSpeed, maxSpeed - reduceDropSpeed, bossSize, bossSize);
+        else blockMover.SetMove(dir, minSpeed, maxSpeed, bossSize, bossSize);
     }
 
 
