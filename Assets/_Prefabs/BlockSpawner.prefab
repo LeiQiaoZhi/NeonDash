@@ -44,15 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e338fd961b42f42b7d218df114746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  block: {fileID: 6365051174854037797, guid: fb2fb3e45a7244020844773340c60fd7, type: 3}
-  spawnRate: 0.5
-  accelerRate: 1
-  timerSpawn: 0
-  timerSpeed: 0
-  lowX: 0
-  highX: 0
-  lowY: 0
-  highY: 0
-  Z: 0
-  minSpeed: 10
-  maxSpeed: 15
+  blockPrefab: {fileID: 6365051174854037797, guid: fb2fb3e45a7244020844773340c60fd7, type: 3}
+  heartBlockPrefab: {fileID: 6365051174854037797, guid: 1b96abe6f15d9be439b506c7b046bad0, type: 3}
+  heartSpawnChance: 0.1
+  secondsBetweenSpawn: 1
+  secondsBetweenAccelerate: 10
+  secondsBetweenBoss: 10
+  blockHealth: 2
+  reduceDropSpeed: 8
+  speedIncrease: 0.1
+  secondsBetweenSpawnMultiplier: 0.95
+  blockHealthMultiplier: 1.2
+  minSpeed: 5
+  maxSpeed: 10
+  minSize: 1
+  maxSize: 3
+  bossSize: 4
