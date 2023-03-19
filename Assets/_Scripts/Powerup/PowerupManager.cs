@@ -111,4 +111,10 @@ public class PowerupManager : MonoBehaviour
         var bulletProperties = weaponHolder.weapon.bulletProperties;
         bulletProperties.lifeTime *= rangeMultiplier; 
     }
+
+    public void ChangePlayerMaxHealth(int maxHealthIncreaseAmount)
+    {
+        playerHealth.SetMaxHealth(playerHealth.maxHealth + maxHealthIncreaseAmount, false);
+        playerHealth.RefreshHealthUI();
+    }
 }

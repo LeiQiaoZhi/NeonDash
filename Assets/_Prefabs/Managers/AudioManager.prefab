@@ -91,43 +91,43 @@ MonoBehaviour:
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   - name: Dash
-    clip: {fileID: 8300000, guid: a2498ec128c22554da289ca83cad78cc, type: 3}
+    clip: {fileID: 8300000, guid: e4e44fc23c134c83bc265cfb51731919, type: 3}
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   - name: BlockDestroyed
-    clip: {fileID: 8300000, guid: 393f008fcad5a0848845cc48226988be, type: 3}
+    clip: {fileID: 8300000, guid: 9b2aa4a24ee6413186f2ee2bc2a78d7f, type: 3}
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   - name: HitBlockHeavy
-    clip: {fileID: 8300000, guid: dce424ee877150d4aba05c1cc845a665, type: 3}
+    clip: {fileID: 8300000, guid: 7e69e2cd27804a70be5f468ce617ae0d, type: 3}
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   - name: HitBlockLight
-    clip: {fileID: 8300000, guid: f4be377d966a86242b6517256c36d302, type: 3}
+    clip: {fileID: 8300000, guid: f0837f1d90834b1fa758bdd67caec189, type: 3}
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   - name: HitBlock
-    clip: {fileID: 8300000, guid: 91ab15686ba34fa42aec2bb44548514e, type: 3}
+    clip: {fileID: 8300000, guid: 63c91098cab94e05ac599c60677d4920, type: 3}
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   - name: HitLaser
-    clip: {fileID: 8300000, guid: c6389cfc1ed3e0e44a9d57066944dbbf, type: 3}
+    clip: {fileID: 8300000, guid: 18c22712266e466b88c2acf15228fdfb, type: 3}
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   - name: LoseLife
-    clip: {fileID: 8300000, guid: 541ac70e271044943adef71a6a5074d3, type: 3}
+    clip: {fileID: 8300000, guid: 1628a05becaf4b0295e3259e01c5ef05, type: 3}
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -135,12 +135,19 @@ MonoBehaviour:
   soundSets:
   - name: Shoot
     clips:
-    - {fileID: 8300000, guid: bacd94b47732798468038cfa05b0c389, type: 3}
+    - {fileID: 8300000, guid: 024fa7478a42443dbfda9efa0ccbbbf9, type: 3}
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   - name: Powerup
     clips:
-    - {fileID: 8300000, guid: f75912db883e176409547398b474f89f, type: 3}
+    - {fileID: 8300000, guid: fb2a842d95404b0482209928e85ade3a, type: 3}
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: HitBlock
+    clips:
+    - {fileID: 8300000, guid: 7e69e2cd27804a70be5f468ce617ae0d, type: 3}
+    - {fileID: 8300000, guid: f0837f1d90834b1fa758bdd67caec189, type: 3}
+    - {fileID: 8300000, guid: 63c91098cab94e05ac599c60677d4920, type: 3}
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   bgms:

@@ -10,7 +10,7 @@ public class LaserMover : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.Instance.PlaySound("Laser");
+        // AudioManager.Instance.PlaySound("Laser");
     }
 
     // Update is called once per frame

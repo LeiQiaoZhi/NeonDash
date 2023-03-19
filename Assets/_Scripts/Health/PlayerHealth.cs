@@ -35,6 +35,11 @@ public class PlayerHealth : Health
         if (change < 0)
             AudioManager.Instance.PlaySound("LoseLife");
         base.ChangeHealth(change, from);
+        RefreshHealthUI();
+    }
+
+    public void RefreshHealthUI()
+    {
         foreach (RectTransform child in heartBar)
         {
             Destroy(child.gameObject);
@@ -46,6 +51,6 @@ public class PlayerHealth : Health
         for (int i = 0; i < maxHealth-Mathf.Max(0,currentHealth); i++)
         {
             Instantiate(notFullHeartItem, heartBar);
-        }
+        } 
     }
 }

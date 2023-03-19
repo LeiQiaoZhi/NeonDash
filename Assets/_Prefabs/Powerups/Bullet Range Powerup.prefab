@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4545267167246104063}
   - component: {fileID: 4545267167246104062}
   m_Layer: 0
-  m_Name: Left Bullet Powerup
+  m_Name: Bullet Range Powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 4545267167440991328}
   - {fileID: 4545267167252635983}
-  - {fileID: 4304297729256242519}
+  - {fileID: 7223304268870943522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -62,21 +62,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4545267167246104050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee8521cd91674343b8fcf25d14f544dd, type: 3}
+  m_Script: {fileID: 11500000, guid: b9b436ab193c4791be1cb70a2537efcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickupLayer:
     serializedVersion: 2
     m_Bits: 256
-  pickupLine: + Left Bullet +
+  pickupLine: + Bullet Range +
   pickupText: {fileID: 4545267167507266504}
-  textColor: {r: 0.9960785, g: 0.23137257, b: 0.9960785, a: 1}
-  indicator: {fileID: 149025903128819633}
+  textColor: {r: 0.3254717, g: 0.40527287, b: 1, a: 1}
+  indicator: {fileID: 6743235853408537028}
   destoryLayer:
     serializedVersion: 2
     m_Bits: 512
-  directionIndexTDLR: 2
-  changeAmount: 2
+  bulletRangeMultiplier: 1.2
 --- !u!95 &4545267167246104062
 Animator:
   serializedVersion: 4
@@ -272,8 +271,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8dc8b795f8ecb6d4898ece4d776d95ea, type: 3}
-  m_Color: {r: 0.9563513, g: 0.18431371, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ad8aeff588d9cc043862d71f038d627c, type: 3}
+  m_Color: {r: 0.3254717, g: 0.40527287, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -500,9 +499,9 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.525
-  m_Color: {r: 1, g: 0, b: 0.99906826, a: 1}
+  m_Color: {r: 0.3254717, g: 0.40527287, b: 1, a: 1}
   m_Intensity: 0.64
-  m_LightVolumeIntensity: 0.25
+  m_LightVolumeIntensity: 0.41
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -562,7 +561,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1001 &1328796614922727592
+--- !u!1001 &5617517571327577821
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -572,6 +571,10 @@ PrefabInstance:
     - target: {fileID: 1180408469885732633, guid: feda4ee1c72aad346ac8a039bf061181, type: 3}
       propertyPath: m_Name
       value: Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180408469885732633, guid: feda4ee1c72aad346ac8a039bf061181, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3011565105392602623, guid: feda4ee1c72aad346ac8a039bf061181, type: 3}
       propertyPath: m_RootOrder
@@ -619,13 +622,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feda4ee1c72aad346ac8a039bf061181, type: 3}
---- !u!1 &149025903128819633 stripped
+--- !u!1 &6743235853408537028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1180408469885732633, guid: feda4ee1c72aad346ac8a039bf061181, type: 3}
-  m_PrefabInstance: {fileID: 1328796614922727592}
+  m_PrefabInstance: {fileID: 5617517571327577821}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4304297729256242519 stripped
+--- !u!4 &7223304268870943522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3011565105392602623, guid: feda4ee1c72aad346ac8a039bf061181, type: 3}
-  m_PrefabInstance: {fileID: 1328796614922727592}
+  m_PrefabInstance: {fileID: 5617517571327577821}
   m_PrefabAsset: {fileID: 0}

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         var deaths = PlayerPrefs.GetInt("deaths", 0);
         for (int i = 0; i < deaths; i++)
         {
-            var meterObject = Instantiate(meterPrefab);
+            var meterObject = Instantiate(meterPrefab, transform);
             var meter = PlayerPrefs.GetFloat($"meter-{i}", -100);
             if (meter > -100)
             {

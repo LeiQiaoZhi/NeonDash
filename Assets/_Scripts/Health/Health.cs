@@ -14,10 +14,11 @@ public abstract class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public virtual void SetMaxHealth(int newMaxHealth)
+    public virtual void SetMaxHealth(int newMaxHealth, bool setCurrentHealth = true)
     {
         maxHealth = newMaxHealth;
-        currentHealth = maxHealth;
+        if (setCurrentHealth)
+            currentHealth = maxHealth;
     }
 
     public virtual void ChangeHealth(int change, GameObject from)
