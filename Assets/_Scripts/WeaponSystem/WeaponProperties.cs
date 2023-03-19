@@ -21,16 +21,16 @@ public class WeaponProperties : ScriptableObject
         return Quaternion.AngleAxis(angle, Vector3.forward) * direction;
     }
 
-    public string TLDRtoString(int directionIndex)
+    public string TDLRtoString(int directionIndex)
     {
         switch (directionIndex)
         {
             case 0:
                 return "Top";
             case 1:
-                return "Left";
-            case 2:
                 return "Down";
+            case 2:
+                return "Left";
             default:
                 return "Right";
         }

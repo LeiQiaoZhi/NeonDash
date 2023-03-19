@@ -22,7 +22,8 @@ public class DebugConsole : MonoBehaviour
             DebugCommandList.TestCommand,
             DebugCommandList.QuitCommand,
             DebugCommandList.HelpCommand,
-            DebugCommandList.StatsCommand
+            DebugCommandList.StatsCommand,
+            DebugCommandList.ClearDeathsRecordsCommand
         };
     }
 

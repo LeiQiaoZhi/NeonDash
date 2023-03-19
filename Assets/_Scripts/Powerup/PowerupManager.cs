@@ -7,6 +7,7 @@ public class PowerupManager : MonoBehaviour
 {
     private WeaponHolder weaponHolder;
     private Movement playerMovement;
+    private PlayerHealth playerHealth;
 
     public static PowerupManager Instance;
 
@@ -27,6 +28,7 @@ public class PowerupManager : MonoBehaviour
     {
         playerMovement = FindObjectOfType<Movement>();
         weaponHolder = playerMovement.GetComponentInChildren<WeaponHolder>();
+        playerHealth = playerMovement.GetComponent<PlayerHealth>();
     }
 
     public void MultiplyAttackSpeed(float secondsBetweenFireMultiplier)
@@ -37,13 +39,13 @@ public class PowerupManager : MonoBehaviour
         weaponProperties.secondsBetweenFire *= secondsBetweenFireMultiplier;
     }
 
-    public void ChangeBulletNumberTLDR(int change, int directionIndexTLDR)
+    public void ChangeBulletNumberTDLR(int change, int directionIndexTDLR)
     {
         var weaponProperties = weaponHolder.weapon.weaponProperties;
         XLogger.Log(Category.PowerUp,
-            $"num bullets in {weaponProperties.TLDRtoString(directionIndexTLDR)} increased from" +
-            $" {weaponProperties.numBulletsTDLR[directionIndexTLDR]} to {weaponProperties.numBulletsTDLR[directionIndexTLDR] + change}");
-        weaponProperties.numBulletsTDLR[directionIndexTLDR] += change;
+            $"num bullets in {weaponProperties.TDLRtoString(directionIndexTDLR)} increased from" +
+            $" {weaponProperties.numBulletsTDLR[directionIndexTDLR]} to {weaponProperties.numBulletsTDLR[directionIndexTDLR] + change}");
+        weaponProperties.numBulletsTDLR[directionIndexTDLR] += change;
     }
 
     public void MultiplyBulletSpeed(float changeInBulletSpeed)
@@ -87,5 +89,10 @@ public class PowerupManager : MonoBehaviour
                       $"Acceleration: {movementSettings.accleration} | " +
                       $"Rotation speed: {movementSettings.rotationSpeed}";
         return summary;
+    }
+
+    public void ChangePlayerHealth(int restoreAmount)
+    {
+        playerHealth.ChangeHealth(restoreAmount, gameObject);
     }
 }

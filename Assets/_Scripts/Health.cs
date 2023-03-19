@@ -22,7 +22,7 @@ public abstract class Health : MonoBehaviour
 
     public virtual void ChangeHealth(int change, GameObject from)
     {
-        currentHealth += change;
+        currentHealth = Mathf.Clamp(currentHealth+change,0,maxHealth);
         if (currentHealth <= 0)
         {
             Die(from);

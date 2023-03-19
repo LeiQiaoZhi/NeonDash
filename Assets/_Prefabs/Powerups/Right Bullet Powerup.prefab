@@ -75,7 +75,7 @@ MonoBehaviour:
   destoryLayer:
     serializedVersion: 2
     m_Bits: 512
-  directionIndexTLDR: 3
+  directionIndexTDLR: 3
   changeAmount: 1
 --- !u!95 &4545267167246104062
 Animator:

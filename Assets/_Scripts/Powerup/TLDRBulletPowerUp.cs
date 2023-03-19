@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TLDRBulletPowerUp : Powerup
 {
-    public int directionIndexTLDR;
+    public int directionIndexTDLR;
     public int changeAmount;
     protected override void OnPickUp(Collider2D col)
     {
         base.OnPickUp(col);
-        PowerupManager.Instance.ChangeBulletNumberTLDR(changeAmount, directionIndexTLDR);
+        PowerupManager.Instance.ChangeBulletNumberTDLR(changeAmount, directionIndexTDLR);
     }
 }
