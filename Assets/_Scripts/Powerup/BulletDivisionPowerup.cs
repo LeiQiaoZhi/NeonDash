@@ -6,7 +6,7 @@ public class BulletDivisionPowerup : Powerup
 {
     public Color playerChangedToColor;
     public int numBulletDividedIncrease = 2;
-    public int numDivisionRecursionIncrease = 2;
+    public int numDivisionRecursion = 2;
     public float angleBetweenBullets = 20;
     public float delayBeforeDivision = 0.2f;
     public float bulletLifetimeMultiplier = 0.9f;
@@ -22,7 +22,7 @@ public class BulletDivisionPowerup : Powerup
     {
         destoryLayer = new LayerMask();
         PowerupManager.Instance.BulletDivide(numBulletDividedIncrease, angleBetweenBullets, delayBeforeDivision,
-            numDivisionRecursionIncrease);
+            numDivisionRecursion);
         PowerupManager.Instance.MultiplyBulletLifeTime(bulletLifetimeMultiplier);
         yield return new WaitForSeconds(effectLifeTime);
         XLogger.Log(Category.PowerUp,"restoring properties");

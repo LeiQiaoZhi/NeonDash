@@ -103,7 +103,7 @@ public class PowerupManager : MonoBehaviour
         bulletProperties.numBulletsDivided += numBulletDividedIncrease;
         bulletProperties.angleBetweenBullets = angleBetweenBullets;
         bulletProperties.delayBeforeDivision = delayBeforeDivision;
-        bulletProperties.numRecursiveDivision += numDivisionRecursionIncrease;
+        bulletProperties.numRecursiveDivision = numDivisionRecursionIncrease;
     }
 
     public void MultiplyBulletLifeTime(float rangeMultiplier)

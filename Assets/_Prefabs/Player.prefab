@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7722437353835007342}
   - component: {fileID: 7722437353835007341}
   - component: {fileID: 1961646381}
+  - component: {fileID: 1961646382}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -134,6 +135,21 @@ MonoBehaviour:
   heartItem: {fileID: 6137118413863553404, guid: d3ac75f27313b7e4083ff5f9a1436f94, type: 3}
   notFullHeartItem: {fileID: 6137118413863553404, guid: 37b23816e86379a47b5a7234647ae149, type: 3}
   gameOverEvent: {fileID: 11400000, guid: 4b7b6b8548f6ce7409b3dfcdc3db7ef5, type: 2}
+--- !u!114 &1961646382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722437353835007331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbec16d363d4137bddb83ed27361d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 0.4198113, g: 0.8675658, b: 1, a: 1}
+  spriteRenderer: {fileID: 7722437354849250737}
+  light2D: {fileID: 7722437355197457347}
 --- !u!1 &7722437354225366785
 GameObject:
   m_ObjectHideFlags: 0

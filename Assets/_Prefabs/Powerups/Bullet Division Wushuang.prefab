@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4545267167246104063}
   - component: {fileID: 4545267167246104062}
   m_Layer: 0
-  m_Name: Bullet Division Powerup
+  m_Name: Bullet Division Wushuang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ Animator:
   m_GameObject: {fileID: 4545267167246104050}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9673f5864614a114a852e8b5b4d3622b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5227808abfd64a75aaa7bc231374c64e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

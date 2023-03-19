@@ -8,6 +8,16 @@ public class DeathCountAchievement
     public int achievementIndex;
 }
 
+[System.Serializable]
+public class Achievement
+{
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public int Progress { get; set; }
+    public bool IsCompleted { get; set; }
+}
+
+
 /// <summary>
 /// Singleton class for managing achievements
 /// Dependencies: <c>MessageManager</c>
@@ -17,8 +27,7 @@ public class AchievementManager : MonoBehaviour
     // singleton
     public static AchievementManager instance;
 
-    public List<string> achievementNames;
-    public List<DeathCountAchievement> deathCountAchievements;
+    public List<Achievement> achievements;
 
     private void Awake()
     {
@@ -32,57 +41,61 @@ public class AchievementManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    public void UpdateProgress(string achievementName, int progressAmount)
+    {
+        // Find the achievement by name
+        var achievement = achievements.Find(a => a.Name == achievementName);
+
+        if (achievement == null)
+        {
+            Debug.LogError("Achievement not found: " + achievementName);
+            return;
+        }
+
+        // Update progress
+        achievement.Progress += progressAmount;
+
+        // Check completion
+        if (achievement.Progress >= 100 && !achievement.IsCompleted)
+        {
+            achievement.IsCompleted = true;
+            Debug.Log("Achievement completed: " + achievement.Name);
+        }
+    }
 
     public int GetDeathCount()
     {
         return PlayerPrefs.GetInt("deaths", 0);
     }
 
-    public void IncreaseDeathCount()
-    {
-        int deathCount = PlayerPrefs.GetInt("deaths", 0)+1;
-        PlayerPrefs.SetInt("deaths", deathCount);
-        int achieved = -1;
-        foreach (var deathCountAchievement in deathCountAchievements)
-        {
-            if (deathCountAchievement.deathCount <= deathCount)
-            {
-                achieved = deathCountAchievement.achievementIndex;
-            } 
-        }
-        if (achieved >= 0 && !IsAchievementUnlocked(achieved))
-        {
-            UnlockAchievement(achieved);
-            // dependency 
-            MessageManager.Instance.DisplayMessage($"Achievement unlocked: {achievementNames[achieved].ToUpper()}");
-        }
-    }
-
     public bool IsAchievementUnlocked(string name)
     {
-        if (!achievementNames.Contains(name))
+        var achievement = achievements.Find(a => a.Name == name);
+        if (achievement == null)
         {
             Debug.Log("Achievement is not registered");
             return false;
         }
-        bool unlocked = PlayerPrefs.GetInt(name,0) == 1;
+        var unlocked = PlayerPrefs.GetInt(name,0) == 1;
         return unlocked;
     }
     
      public bool IsAchievementUnlocked(int index)
     {
-        bool unlocked = PlayerPrefs.GetInt(achievementNames[index],0) == 1;
+        var unlocked = PlayerPrefs.GetInt(achievements[index].Name,0) == 1;
         return unlocked;
     }
 
     public void UnlockAchievement(int index)
     {
-        PlayerPrefs.SetInt(achievementNames[index],1);
+        PlayerPrefs.SetInt(achievements[index].Name,1);
     }
 
     public void UnlockAchievement(string name)
     {
-        if (!achievementNames.Contains(name))
+        var achievement = achievements.Find(a => a.Name == name);
+        if (achievement == null)
         {
             Debug.Log("Achievement is not registered");
             return;

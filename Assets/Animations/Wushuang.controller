@@ -32,7 +32,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bullet Division Powerup
+  m_Name: Wushuang
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

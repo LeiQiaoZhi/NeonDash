@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 1062340690476723474}
   - component: {fileID: 1062340690476723475}
   m_Layer: 0
-  m_Name: Bullet Speed WuShuang
+  m_Name: Attack Speed WuShuang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,25 +316,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062340690476723487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07a71ec423b4d668ea627eb8fb9d6d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 81132311508b45969eeb2f6a34904f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickupLayer:
     serializedVersion: 2
     m_Bits: 256
-  pickupLine: '+++ BULLET SPEED +++ '
+  pickupLine: '+++ ATTACK SPEED +++ '
   pickupText: {fileID: 1062340690206909221}
   textColor: {r: 1, g: 0.70576745, b: 0.18431371, a: 1}
   indicator: {fileID: 7799935601555657001}
   destoryLayer:
     serializedVersion: 2
     m_Bits: 512
-  playerChangedToColor: {r: 0.8562816, g: 1, b: 0.18431371, a: 1}
-  numBulletDividedIncrease: 2
-  numDivisionRecursionIncrease: 3
-  angleBetweenBullets: 20
-  delayBeforeDivision: 0.1
-  bulletLifetimeMultiplier: 0.9
+  playerChangedToColor: {r: 1, g: 0.70576745, b: 0.18431371, a: 1}
+  bulletSpeedMultiplier: 0.1
   effectLifeTime: 6
 --- !u!95 &1062340690476723475
 Animator:
@@ -346,7 +342,7 @@ Animator:
   m_GameObject: {fileID: 1062340690476723487}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9673f5864614a114a852e8b5b4d3622b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5227808abfd64a75aaa7bc231374c64e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
