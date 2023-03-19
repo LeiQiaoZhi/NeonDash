@@ -20,6 +20,8 @@ public class BlockSpawner : MonoBehaviour
     public float blockHealthMultiplier = 1.5f;
     [Header("Block Speed")] public float minSpeed = 10;
     public float maxSpeed = 15;
+    [Header("Block Size")] public float minSize = 0.1f;
+    public float maxSize = 0.4f;
 
     // [Header("ScreenDimensions")] public float lowX, highX, lowY, highY;
 
@@ -135,7 +137,8 @@ public class BlockSpawner : MonoBehaviour
         var blockGO = Instantiate(heartBlockPrefab, position, Quaternion.identity);
         blockGO.GetComponent<Health>().SetMaxHealth(blockHealth);
         var blockMover = blockGO.GetComponent<BlockMover>();
-        blockMover.SetMove(dir, minSpeed, maxSpeed); 
+        var size = Random.Range(minSize, maxSize);
+        blockMover.SetMove(dir, minSpeed, maxSpeed, size, size); 
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -145,7 +148,7 @@ public class BlockSpawner : MonoBehaviour
         var blockGO = Instantiate(blockPrefab, position, Quaternion.identity);
         blockGO.GetComponent<Health>().SetMaxHealth(blockHealth);
         var blockMover = blockGO.GetComponent<BlockMover>();
-        blockMover.SetMove(dir, minSpeed, maxSpeed);
+        blockMover.SetMove(dir, minSpeed, maxSpeed, minSize, maxSize);
     }
 
 

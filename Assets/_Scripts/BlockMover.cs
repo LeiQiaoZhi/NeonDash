@@ -11,15 +11,15 @@ public class BlockMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spriteHolder.transform.localScale = new Vector2(Random.Range(1.0f, 4.0f), Random.Range(1.0f, 4.0f));
         // laser = FindObjectOfType<LaserMover>();
         //transform.localScale = new Vector2(1, 1);
     }
 
-    public void SetMove(Vector3 direction, float start, float end)
+    public void SetMove(Vector3 direction, float start, float end, float minSize, float maxSize)
     {
         dir = direction;
         moveSpeed = Random.Range(start, end);
+        spriteHolder.transform.localScale = new Vector2(Random.Range(minSize, maxSize), Random.Range(minSize, maxSize));
     }
 
     // Update is called once per frame
