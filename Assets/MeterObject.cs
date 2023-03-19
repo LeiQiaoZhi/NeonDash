@@ -7,14 +7,15 @@ using UnityEngine.Rendering.Universal;
 
 public class MeterObject : MonoBehaviour
 {
+    [Header("Follow Player")]
     public bool followX;
     public bool followY;
 
-    [Header("Graphics")] 
+    [Header("Graphics")] public float brightness;
+    [SerializeField] private float saturation;
+    [SerializeField] public float alpha;
     public SpriteRenderer leftSprite;
     public SpriteRenderer rightSprite;
-    public Light2D leftLight;
-    public Light2D rightLight;
     public TextMeshProUGUI meterText;
 
     public float moveThreshholdX = 20;
@@ -30,11 +31,9 @@ public class MeterObject : MonoBehaviour
         moveThreshholdY = height/2 + 1;
         
         // random colour
-        var color = ColourHelper.GetRandomColour(1);
+        var color = ColourHelper.GetRandomColour(brightness, saturation, alpha);
         leftSprite.color = color;
-        // leftLight.color = color;
         rightSprite.color = color;
-        // rightLight.color = color;
         meterText.color = color;
     }
 

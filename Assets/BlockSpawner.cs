@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 // x: [-18.34, 18.34]
 // y: [-10, 9.98]
@@ -9,22 +11,42 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    public GameObject block;
-    public float spawnRate = 1, accelerRate = 20;
-    public float timerSpawn = 0, timerSpeed = 0;
-    public float lowX, highX, lowY, highY, Z;
-    public float minSpeed = 10, maxSpeed = 15;
+    public GameObject blockPrefab;
 
+    public float secondsBetweenSpawn = 1, secondsBetweenAccelerate = 10;
+    public int blockHealth = 2;
+    [Header("Accelerate")] 
+    public float speedIncrease = 0.05f;
+    public float secondsBetweenSpawnMultiplier = 0.95f;
+    public float blockHealthMultiplier = 1.5f;
+    [Header("Block Speed")] public float minSpeed = 10;
+    public float maxSpeed = 15;
+    
+    // [Header("ScreenDimensions")] public float lowX, highX, lowY, highY;
+
+    private float timerSpawn = 0, timerSpeed = 0;
     private PlayerInput player;
+    private Movement playerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerInput>();
+        playerMovement = player.GetComponent<Movement>();
+        
+        StartCoroutine(Spawn());
+        StartCoroutine(IncreaseSpawnRate());
     }
 
-    KeyValuePair<Vector2, Vector3> getRandomPosition(Vector3 centre)
+    KeyValuePair<Vector2, Vector3> GetRandomPosition(Vector3 centre)
     {
+        Vector3 v = Camera.main.ViewportToWorldPoint(Vector3.zero);
+        var lowX = v.x;
+        var lowY = v.y;
+        v = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        var highX = v.x;
+        var highY = v.y;
+        
         Vector2 p = Vector2.zero;
         Vector3 dir = Vector3.zero;
         do
@@ -55,41 +77,59 @@ public class BlockSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timerSpeed < accelerRate)
-            timerSpeed = timerSpeed + Time.deltaTime;
-        else
+        // if (timerSpeed < secondsBetweenAccelerate)
+        //     timerSpeed += Time.deltaTime;
+        // else
+        // {
+        // }
+        //
+        // if (timerSpawn < secondsBetweenSpawn)
+        //     timerSpawn += Time.deltaTime;
+        // else
+        // {
+        // Vector3 v = Camera.main.ViewportToWorldPoint(Vector3.zero);
+        // lowX = v.x;
+        // lowY = v.y;
+        // v = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        // highX = v.x;
+        // highY = v.y;
+        // Z = v.z;
+        //
+        //     CreateBlock();
+        //
+        //     timerSpawn = 0;
+        // }
+    }
+
+    IEnumerator IncreaseSpawnRate()
+    {
+        while (true)
         {
-            minSpeed = minSpeed + 0.05f;
-            maxSpeed = maxSpeed + 0.05f;
-            spawnRate = spawnRate * 0.95f;
-            timerSpeed = 0;
+            yield return new WaitForSeconds(secondsBetweenAccelerate);
+            minSpeed += speedIncrease;
+            maxSpeed += speedIncrease;
+            secondsBetweenSpawn *= secondsBetweenSpawnMultiplier;
+            blockHealth = Mathf.RoundToInt((blockHealth+1) * blockHealthMultiplier);
         }
+    }
 
-        if (timerSpawn < spawnRate)
-            timerSpawn = timerSpawn + Time.deltaTime;
-        else
+    IEnumerator Spawn()
+    {
+        while (true)
         {
-            Vector3 v = Camera.main.ViewportToWorldPoint(Vector3.zero);
-            lowX = v.x;
-            lowY = v.y;
-            v = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
-            highX = v.x;
-            highY = v.y;
-            Z = v.z;
-
-            var (position, dir) = getRandomPosition(player.transform.position);
-
-            CreateBlock(position, dir, minSpeed, maxSpeed);
-            timerSpawn = 0;
+            yield return new WaitForSeconds(secondsBetweenSpawn);
+            CreateBlock();
         }
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    private void CreateBlock(Vector2 position, Vector3 dir, float minBlockSpeed, float maxBlockSpeed)
+    private void CreateBlock()
     {
-        var blockGO = Instantiate(block, position, transform.rotation);
+        var (position, dir) = GetRandomPosition(player.transform.position);
+        var blockGO = Instantiate(blockPrefab, position, Quaternion.identity);
+        blockGO.GetComponent<Health>().SetMaxHealth(blockHealth);
         var blockMover = blockGO.GetComponent<BlockMover>();
-        blockMover.SetMove(dir, minBlockSpeed, maxBlockSpeed);
+        blockMover.SetMove(dir, minSpeed, maxSpeed);
     }
 
 

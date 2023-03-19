@@ -87,8 +87,8 @@ MonoBehaviour:
   soundSets: []
   bgms:
   - name: BGM1
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: c2cb61157eb71404f91cd01ba6042053, type: 3}
     loop: 1
-    playOnAwake: 0
+    playOnAwake: 1
     source: {fileID: 0}
     output: {fileID: -8845014617401291916, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}

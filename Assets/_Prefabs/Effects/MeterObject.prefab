@@ -404,10 +404,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followX: 1
   followY: 0
+  brightness: 0.6
+  saturation: 0.4
+  alpha: 0
   leftSprite: {fileID: 8277128307602650467}
   rightSprite: {fileID: 8277128306138623753}
-  leftLight: {fileID: 0}
-  rightLight: {fileID: 0}
   meterText: {fileID: 8277128307126068364}
   moveThreshholdX: 10
 --- !u!1 &8277128307126068366

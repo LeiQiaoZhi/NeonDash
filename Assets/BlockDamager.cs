@@ -20,7 +20,7 @@ public class BlockDamager : MonoBehaviour
             if (destorySelfOnHit)
             {
                 var selfHealth = GetComponentInParent<Health>();
-                selfHealth.ChangeHealth(-health.maxHealth,gameObject);
+                selfHealth.ChangeHealth(-int.MaxValue,gameObject);
             }
         }
     }

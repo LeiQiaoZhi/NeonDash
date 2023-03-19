@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
             var meter = PlayerPrefs.GetFloat($"meter-{i}", -100);
             if (meter > -100)
             {
+                meterObject.GetComponent<MeterObject>().alpha = Mathf.Lerp(0.1f, 1f, (i+1) / deaths);
                 meterObject.transform.position = new Vector3(0,meter,0);
                 meterObject.GetComponentInChildren<TextMeshProUGUI>().text = $"Deaths {i} -- {meter:F1}m";
             }

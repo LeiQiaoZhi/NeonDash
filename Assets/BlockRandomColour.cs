@@ -5,7 +5,8 @@ using UnityEngine.Rendering.Universal;
 
 public class BlockRandomColour : MonoBehaviour
 {
-    public float colorIntensity;
+    public float brightness;
+    [SerializeField] private float saturation;
     private SpriteRenderer spriteRenderer;
     private Light2D light2D;
     private Color color;
@@ -19,7 +20,7 @@ public class BlockRandomColour : MonoBehaviour
 
     void SetRandomColour()
     {
-        var color = ColourHelper.GetRandomColour(colorIntensity);
+        var color = ColourHelper.GetRandomColour(brightness, saturation);
         spriteRenderer.color = color;
         light2D.color = color;
     }
