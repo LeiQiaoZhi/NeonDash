@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb7962da0cd14da594142896f801db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetween: 0.1
+  secondsBetween: 0.2
   threePrefab: {fileID: 5700661560485786783, guid: 1325e7f07f7c03c45bfeb89a4d26aafa, type: 3}
   twoPrefab: {fileID: 6671678942027996917, guid: 7dfa3ceecb8045a4b9dcac200608eafa, type: 3}
   onePrefab: {fileID: 7589335231505160907, guid: 5f6b38f561b9b114c829beca78058b43, type: 3}

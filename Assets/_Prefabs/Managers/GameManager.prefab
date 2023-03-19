@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba66e724bc08c7647af9c965cf1d455f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meterPrefab: {fileID: 8277128306557184873, guid: 924a0beff8f6fd345afc9f93e9a30d7b, type: 3}
 --- !u!114 &438795692
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,7 +25,12 @@ public class BlockHealth : Health
         base.ChangeHealth(change, from);
         healthText.text = currentHealth.ToString();
 
-        AudioManager.Instance.PlaySound("HitBlock");
+        if (from.CompareTag("Player"))
+        {
+            AudioManager.Instance.PlaySound("HitBlock");
+            ScreenShaker.Instance.ShakeCamera(1f,2f,0.1f);
+        }
+
     }
 
     protected override void Die(GameObject from)
