@@ -24,10 +24,15 @@ public class BlockHealth : Health
     {
         base.ChangeHealth(change, from);
         healthText.text = currentHealth.ToString();
+
+        AudioManager.Instance.PlaySound("HitBlock");
     }
 
     protected override void Die(GameObject from)
     {
+        // sound
+        AudioManager.Instance.PlaySound("BlockDestroyed");
+        
         // particle effect
         var effect = Instantiate(destoryEffect);
         effect.transform.position = transform.position;

@@ -23,7 +23,7 @@ public class WeaponHolder : MonoBehaviour
         
         weapon.ShootBullet(this);
         
-        // ScreenShaker.Instance.ShakeCamera(0.7f, 2f, 0.1f);
+        AudioManager.Instance.PlayRandomFromSoundSet("Shoot");
         
         nextFireTime = Time.time + weapon.weaponProperties.secondsBetweenFire;
     }

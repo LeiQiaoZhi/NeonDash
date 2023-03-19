@@ -84,7 +84,65 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
     output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
-  soundSets: []
+  - name: Laser
+    clip: {fileID: 8300000, guid: f1287d5efbeb6c341b10f3eb7eaefd25, type: 3}
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: Dash
+    clip: {fileID: 8300000, guid: a2498ec128c22554da289ca83cad78cc, type: 3}
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: BlockDestroyed
+    clip: {fileID: 8300000, guid: 393f008fcad5a0848845cc48226988be, type: 3}
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: HitBlockHeavy
+    clip: {fileID: 8300000, guid: dce424ee877150d4aba05c1cc845a665, type: 3}
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: HitBlockLight
+    clip: {fileID: 8300000, guid: f4be377d966a86242b6517256c36d302, type: 3}
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: HitBlock
+    clip: {fileID: 8300000, guid: 91ab15686ba34fa42aec2bb44548514e, type: 3}
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: HitLaser
+    clip: {fileID: 8300000, guid: c6389cfc1ed3e0e44a9d57066944dbbf, type: 3}
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: LoseLife
+    clip: {fileID: 8300000, guid: 541ac70e271044943adef71a6a5074d3, type: 3}
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  soundSets:
+  - name: Shoot
+    clips:
+    - {fileID: 8300000, guid: bacd94b47732798468038cfa05b0c389, type: 3}
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
+  - name: Powerup
+    clips:
+    - {fileID: 8300000, guid: f75912db883e176409547398b474f89f, type: 3}
+    source: {fileID: 0}
+    output: {fileID: 4533460643899935376, guid: 3b8f0db582eb1814fa9ac9f46f8d64b0, type: 2}
   bgms:
   - name: BGM1
     clip: {fileID: 8300000, guid: c2cb61157eb71404f91cd01ba6042053, type: 3}

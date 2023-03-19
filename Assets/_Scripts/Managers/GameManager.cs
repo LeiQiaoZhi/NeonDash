@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void CreatePastMeters()
     {
-        var deaths = PlayerPrefs.GetFloat("deaths", 0);
+        var deaths = PlayerPrefs.GetInt("deaths", 0);
         for (int i = 0; i < deaths; i++)
         {
             var meterObject = Instantiate(meterPrefab);
@@ -57,9 +57,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         uiManager.SetEnableGameOverScreen(true);
         // increase death count
-        var deaths = PlayerPrefs.GetFloat("deaths", 0);
+        var deaths = PlayerPrefs.GetInt("deaths", 0);
         deaths++;
-        PlayerPrefs.SetFloat("deaths",deaths);
+        PlayerPrefs.SetInt("deaths",deaths);
+        AchievementManager.instance.UpdateDeathCountAchievements(deaths);
         // record meters
         PlayerPrefs.SetFloat($"meter-{deaths}",meters);
     }

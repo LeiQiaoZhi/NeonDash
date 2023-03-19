@@ -53,6 +53,8 @@ public class Powerup : MonoBehaviour
     {
         if (LayerMaskHelper.IsLayerInLayerMask(col.gameObject.layer, pickupLayer))
         {
+            // audio
+            AudioManager.Instance.PlayRandomFromSoundSet("Powerup");
             // pick up text animation
             GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
             pickupText.enabled = true;

@@ -14,6 +14,7 @@ public class DashAbility : Ability
     private Rigidbody2D _rb;
     public override void OnActivate(AbilityHolder abilityHolder)
     {
+        AudioManager.Instance.PlaySound("Dash");
         _normalSpeed = abilityHolder.GetComponent<Movement>().runtimeMovementSettings.moveSpeed;
         abilityHolder.GetComponent<Movement>().runtimeMovementSettings.moveSpeed *= dashSpeedMultiplier;
         _rb = abilityHolder.GetComponent<Rigidbody2D>();

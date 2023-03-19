@@ -33,11 +33,11 @@ public class UIManager : MonoBehaviour
         AchievementManager achievementManager = AchievementManager.instance;
         if (achievementManager.IsAchievementUnlocked(i))
         {
-            XLogger.Log(Category.Achievement,$"Achivement {achievementManager.achievements[i].Name} is already unlocked");
+            XLogger.Log(Category.Achievement,$"Achivement {achievementManager.achievements[i].name} is already unlocked");
             return;
         }
         achievementManager.UnlockAchievement(i);
-        MessageManager.Instance.DisplayMessage($"Achievement Unlock: {achievementManager.achievements[i].Name.ToUpper()}");
+        MessageManager.Instance.DisplayMessage($"Achievement Unlock: {achievementManager.achievements[i].name.ToUpper()}");
     }
 
     public void Pause()

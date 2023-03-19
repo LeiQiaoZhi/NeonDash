@@ -32,6 +32,8 @@ public class PlayerHealth : Health
 
     public override void ChangeHealth(int change, GameObject from)
     {
+        if (change < 0)
+            AudioManager.Instance.PlaySound("LoseLife");
         base.ChangeHealth(change, from);
         foreach (RectTransform child in heartBar)
         {

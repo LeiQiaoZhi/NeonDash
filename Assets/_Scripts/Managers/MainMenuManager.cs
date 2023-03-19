@@ -127,7 +127,7 @@ public class MainMenuManager : MonoBehaviour
         for (int i = 0; i < achievementCanvasGroups.Count; i++)
         {
             bool unlocked = AchievementManager.instance.IsAchievementUnlocked(i);
-            XLogger.Log(Category.Achievement,$"achievement {i} is unlocked: {unlocked}");
+            XLogger.Log(Category.Achievement,$"achievement {i} -- {AchievementManager.instance.achievements[i].name} is unlocked: {unlocked}");
             achievementCanvasGroups[i].alpha = unlocked ? 1 : 0.5f;
         }
     }
