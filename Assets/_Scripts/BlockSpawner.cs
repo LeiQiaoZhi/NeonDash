@@ -13,9 +13,9 @@ public class BlockSpawner : MonoBehaviour
     public GameObject heartBlockPrefab;
     public float heartSpawnChance = 0.1f;
 
-    [Header("Rates")] public float secondsBetweenSpawn = 1, secondsBetweenAccelerate = 10;
+    [Header("Rates")] public float secondsBetweenSpawn = 1, secondsBetweenAccelerate = 10, reduceDropSpeed = 5;
     public int blockHealth = 2;
-    [Header("Accelerate")] public float speedIncrease = 0.05f;
+    [Header("Accelerate")] public float speedIncrease = 0.1f;
     public float secondsBetweenSpawnMultiplier = 0.95f;
     public float blockHealthMultiplier = 1.5f;
     [Header("Block Speed")] public float minSpeed = 10;
@@ -148,7 +148,9 @@ public class BlockSpawner : MonoBehaviour
         var blockGO = Instantiate(blockPrefab, position, Quaternion.identity);
         blockGO.GetComponent<Health>().SetMaxHealth(blockHealth);
         var blockMover = blockGO.GetComponent<BlockMover>();
-        blockMover.SetMove(dir, minSpeed, maxSpeed, minSize, maxSize);
+        if (dir == Vector3.down)
+            blockMover.SetMove(dir, minSpeed - reduceDropSpeed, maxSpeed - reduceDropSpeed, minSize, maxSize);
+        else blockMover.SetMove(dir, minSpeed, maxSpeed, minSize, maxSize);
     }
 
 
