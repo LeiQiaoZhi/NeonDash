@@ -70,7 +70,7 @@ MonoBehaviour:
     m_Bits: 256
   pickupLine: + Health Restored +
   pickupText: {fileID: 4545267167507266504}
-  textColor: {r: 1, g: 0.3361776, b: 0, a: 1}
+  textColor: {r: 1, g: 0.14395219, b: 0, a: 1}
   indicator: {fileID: 8611793687174885508}
   destoryLayer:
     serializedVersion: 2
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightOuterRadius: 0.71
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

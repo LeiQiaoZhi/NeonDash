@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 6365051175145270772}
   - component: {fileID: 371928581830653980}
   - component: {fileID: 8027478285495632780}
+  - component: {fileID: 8012724375108154532}
   m_Layer: 7
   m_Name: Sprite and Collider
   m_TagString: Untagged
@@ -260,7 +261,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6839e7a412506094eb2b4fbe9e0aa82f, type: 3}
-  m_Color: {r: 1, g: 0.039559506, b: 0, a: 1}
+  m_Color: {r: 0.6509434, g: 0.025527192, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -332,6 +333,23 @@ PolygonCollider2D:
       - {x: 0.78, y: -0.044999998}
       - {x: 0.85999995, y: 0.085}
       - {x: 0.85999995, y: 0.505}
+--- !u!114 &8012724375108154532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365051175145270770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c08b18d51c259e4e898a71e9078460b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 1
+  destorySelfOnHit: 1
 --- !u!1 &8535669978568889068
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +533,7 @@ MonoBehaviour:
   m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.568
-  m_Color: {r: 1, g: 0.10174515, b: 0, a: 1}
+  m_Color: {r: 0.6037736, g: 0.061561234, b: 0, a: 1}
   m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
