@@ -54,7 +54,7 @@ MonoBehaviour:
   reduceDropSpeed: 8
   speedIncrease: 0.1
   secondsBetweenSpawnMultiplier: 0.95
-  blockHealthMultiplier: 1.2
+  blockHealthMultiplier: 1.12
   minSpeed: 5
   maxSpeed: 10
   minSize: 1

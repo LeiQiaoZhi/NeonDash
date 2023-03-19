@@ -76,7 +76,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   directionIndexTDLR: 1
-  changeAmount: 1
+  changeAmount: 2
 --- !u!95 &4545267167246104062
 Animator:
   serializedVersion: 4

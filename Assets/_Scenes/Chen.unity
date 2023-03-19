@@ -420,11 +420,11 @@ PrefabInstance:
       objectReference: {fileID: 1154342767}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: spawnRate
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.data[0].powerup
@@ -432,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 4545267167246104050, guid: 7ee523d01395d0b4cbb55ee5ad720620, type: 3}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.data[0].relProb
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.data[1].powerup
@@ -472,7 +472,7 @@ PrefabInstance:
       objectReference: {fileID: 4545267167246104050, guid: d77ad95c7a64da7449b1377de3ef5341, type: 3}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.data[5].relProb
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.data[6].powerup
@@ -488,7 +488,7 @@ PrefabInstance:
       objectReference: {fileID: 4545267167246104050, guid: f6d054ebed97daf459438865cc436dc1, type: 3}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.data[7].relProb
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.data[8].powerup
@@ -496,6 +496,14 @@ PrefabInstance:
       objectReference: {fileID: 4545267167246104050, guid: 6d82e236fb070214cb8e703ae6fd9aba, type: 3}
     - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
       propertyPath: powerups.Array.data[8].relProb
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
+      propertyPath: powerups.Array.data[9].powerup
+      value: 
+      objectReference: {fileID: 1062340690476723487, guid: 609d0f7f9f65467b860872dac95a02f0, type: 3}
+    - target: {fileID: 2143171464007651813, guid: 93b5be7ac21e94bd9aeec2e60e1b7a05, type: 3}
+      propertyPath: powerups.Array.data[9].relProb
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1396,6 +1404,14 @@ PrefabInstance:
     - target: {fileID: 677790240903168026, guid: 8bc787c269ada2d469a8f642c2389ee0, type: 3}
       propertyPath: m_Name
       value: BlockSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 677790240903168027, guid: 8bc787c269ada2d469a8f642c2389ee0, type: 3}
+      propertyPath: blockHealthMultiplier
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 677790240903168027, guid: 8bc787c269ada2d469a8f642c2389ee0, type: 3}
+      propertyPath: secondsBetweenAccelerate
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bc787c269ada2d469a8f642c2389ee0, type: 3}
