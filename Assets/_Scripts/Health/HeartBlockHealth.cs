@@ -5,12 +5,15 @@ using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BlockHealth : Health
+public class HeartBlockHealth : Health
 {
     public ParticleSystem destoryEffect;
     public TextMeshProUGUI healthText;
     public Canvas scoreTextCanvas;
     public GameObject residuePrefab;
+    [Header("Drops")]
+    public GameObject heartPowerupPrefab;
+    public float dropRate;
 
     private GameManager gameManager;
 
@@ -44,16 +47,21 @@ public class BlockHealth : Health
         if (from.CompareTag("Player"))
         {
             // score
-            gameManager.AddScore(maxHealth);
+            // gameManager.AddScore(maxHealth);
 
-            // score text
-            var canvas = Instantiate(scoreTextCanvas);
-            canvas.GetComponent<RectTransform>().anchoredPosition = transform.position;
-            var scoreText = canvas.GetComponentInChildren<TextMeshProUGUI>();
-            scoreText.enabled = true;
-            scoreText.text = $"+{maxHealth}";
-            scoreText.color = blockColor;
-
+            // // score 
+            // var canvas = Instantiate(scoreTextCanvas);
+            // canvas.GetComponent<RectTransform>().anchoredPosition = transform.position;
+            // var scoreText = canvas.GetComponentInChildren<TextMeshProUGUI>();
+            // scoreText.enabled = true;
+            // scoreText.text = $"+{maxHealth}";
+            // scoreText.color = blockColor;
+            
+            // drop heart
+            if (Random.value <= dropRate)
+            {
+                var heart = Instantiate(heartPowerupPrefab, transform.position, Quaternion.identity);
+            }
 
             // screen shake
             ScreenShaker.Instance.ShakeCamera();
